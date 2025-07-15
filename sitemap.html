@@ -19,6 +19,19 @@
     <meta name="description" content="Sitemap for Laravel Experts Kolkata - Find all pages and services offered by our Laravel development agency.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://laravelkolkata.com/sitemap">
+
+    <!-- HubSpot Tracking Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/243064993.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65EWYHYPCP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-65EWYHYPCP');
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -40,23 +53,43 @@
     <!-- Navigation -->
     <nav class="bg-white/95 backdrop-blur-md shadow-lg fixed w-full z-50 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20">
-                <div class="flex items-center">
-                    <a href="/" class="flex items-center group cursor-pointer">
-                        <div class="bg-gradient-to-r from-laravel-red to-laravel-orange p-2 rounded-lg mr-3 group-hover:scale-105 transition duration-300">
-                            <i class="fab fa-laravel text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-2xl font-bold text-gray-900 group-hover:text-laravel-red transition duration-300">Laravel Experts</h1>
-                            <p class="text-xs text-gray-500 -mt-1">Kolkata</p>
-                        </div>
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo and Brand -->
+                <a href="/" class="flex items-center group cursor-pointer">
+                    <div class="bg-gradient-to-r from-laravel-red to-laravel-orange p-2 rounded-lg mr-3 group-hover:scale-105 transition duration-300">
+                        <i class="fab fa-laravel text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold text-gray-900 group-hover:text-laravel-red transition duration-300">Laravel Experts</span>
+                        <span class="block text-xs text-gray-500 -mt-1">Kolkata</span>
+                    </div>
+                </a>
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-laravel-red font-medium transition duration-300">Home</a>
+                    <a href="/privacy-policy.html" class="text-gray-700 hover:text-laravel-red font-medium transition duration-300">Privacy Policy</a>
+                    <a href="/terms-of-service.html" class="text-gray-700 hover:text-laravel-red font-medium transition duration-300">Terms</a>
+                    <a href="/sitemap.html" class="text-gray-700 hover:text-laravel-red font-medium transition duration-300">Sitemap</a>
+                    <a href="/#contact" class="bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300">
+                        Contact
                     </a>
                 </div>
-                <div class="flex items-center">
-                    <a href="/" class="bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300">
-                        Back to Home
-                    </a>
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center">
+                    <button class="mobile-menu-button p-2 rounded-md hover:bg-gray-100 transition duration-300" aria-label="Open Menu">
+                        <i class="fas fa-bars text-gray-700 text-xl"></i>
+                    </button>
                 </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden lg:hidden bg-white border-t border-gray-100 shadow-lg">
+            <div class="px-4 py-4 space-y-2">
+                <a href="/" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">Home</a>
+                <a href="/privacy-policy.html" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">Privacy Policy</a>
+                <a href="/terms-of-service.html" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">Terms</a>
+                <a href="/sitemap.html" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">Sitemap</a>
+                <a href="/#contact" class="block mx-4 mt-4 bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-3 rounded-lg font-semibold text-center">Contact</a>
             </div>
         </div>
     </nav>
@@ -340,15 +373,40 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex space-x-6 text-sm mb-4 justify-center">
-                <a href="/privacy-policy.html" class="text-gray-400 hover:text-laravel-red transition duration-300">Privacy Policy</a>
-                <a href="/terms-of-service.html" class="text-gray-400 hover:text-laravel-red transition duration-300">Terms of Service</a>
-                <a href="/sitemap.html" class="text-gray-400 hover:text-laravel-red transition duration-300">Sitemap</a>
+    <footer class="bg-gray-900 text-white relative">
+        <!-- Bottom Footer -->
+        <div class="bg-black py-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        &copy; 2024 Laravel Experts Kolkata. All rights reserved.
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="/privacy-policy.html" target="_blank" class="text-gray-400 hover:text-laravel-red transition duration-300">Privacy Policy</a>
+                        <a href="/terms-of-service.html" target="_blank" class="text-gray-400 hover:text-laravel-red transition duration-300">Terms of Service</a>
+                        <a href="/sitemap.html" target="_blank" class="text-gray-400 hover:text-laravel-red transition duration-300">Sitemap</a>
+                    </div>
+                </div>
             </div>
-            <p>&copy; 2024 Laravel Experts Kolkata. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const btn = document.querySelector("button.mobile-menu-button");
+            const menu = document.querySelector(".mobile-menu");
+            btn.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+            });
+            // Hide mobile menu when clicking a link
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
