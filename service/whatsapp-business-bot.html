@@ -451,7 +451,7 @@
             <div class="flex justify-between h-20">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
-                        <a href="/#home" class="flex items-center group cursor-pointer">
+                        <a href="/" class="flex items-center group cursor-pointer">
                             <div class="bg-gradient-to-r from-laravel-red to-laravel-orange p-2 rounded-lg mr-3 group-hover:scale-105 transition duration-300">
                                 <i class="fab fa-laravel text-white text-xl"></i>
                             </div>
@@ -463,11 +463,11 @@
                     </div>
                 </div>
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/#home" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
+                    <a href="/" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
                         Home
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="/#about" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
+                    <a href="/about.html" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
                         About
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
@@ -635,11 +635,11 @@
                         </div>
                     </div>
 
-                    <a href="/#features" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
+                    <a href="/features.html" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
                         Features
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="/#contact" class="bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300">
+                    <a href="/contact.html" class="bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300">
                         Contact Us
                     </a>
                 </div>
@@ -653,8 +653,8 @@
         <!-- Mobile menu -->
         <div class="mobile-menu hidden lg:hidden bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-80px)] overflow-y-auto">
             <div class="px-4 py-4 space-y-2">
-                <a href="/#home" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">Home</a>
-                <a href="/#about" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">About</a>
+                <a href="/" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">Home</a>
+                <a href="/about.html" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">About</a>
                 
                 <!-- Mobile Dropdown Services -->
                 <div class="space-y-1">
@@ -701,8 +701,8 @@
                     </div>
                 </div>
 
-                <a href="/#features" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">Features</a>
-                <a href="/#contact" class="block mx-4 mt-4 bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-3 rounded-lg font-semibold text-center">Contact Us</a>
+                <a href="/features.html" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">Features</a>
+                <a href="/contact.html" class="block mx-4 mt-4 bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-3 rounded-lg font-semibold text-center">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -712,25 +712,28 @@
     <!-- Hero / Intro Section -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
         <!-- Breadcrumbs -->
-        <nav class="flex mb-8 text-gray-500 text-sm font-medium" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <nav class="flex mb-8" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm">
                 <li class="inline-flex items-center">
-                    <a href="/" class="inline-flex items-center hover:text-laravel-red transition duration-300">
-                        <i class="fas fa-home mr-2"></i>
+                    <a href="/" class="inline-flex items-center text-gray-500 hover:text-laravel-red transition-colors duration-300 text-xs font-semibold">
+                        <i class="fas fa-home mr-2 text-[11px] text-gray-400"></i>
                         Home
                     </a>
                 </li>
-                <li>
-                    <div class="flex items-center">
-                        <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-                        <a href="/#services" class="hover:text-laravel-red transition duration-300">Services</a>
-                    </div>
+                <li class="flex items-center">
+                    <i class="fas fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+                    <a href="/services.html" class="inline-flex items-center text-gray-500 hover:text-laravel-red transition-colors duration-300 text-xs font-semibold">
+                        Services
+                    </a>
                 </li>
-                <li aria-current="page">
-                    <div class="flex items-center">
-                        <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-                        <span class="text-laravel-red font-semibold">WhatsApp Business Platform Bot Integration</span>
-                    </div>
+                <li class="flex items-center">
+                    <i class="fas fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+                </li>
+                <li aria-current="page" class="flex items-center">
+                    <span class="inline-flex items-center bg-gradient-to-r from-laravel-red/10 to-laravel-orange/10 text-laravel-red px-3 py-1 rounded-full text-xs font-bold border border-laravel-red/20">
+                        <i class="fab fa-whatsapp mr-1.5 text-[10px]"></i>
+                        WhatsApp Business Platform Bot Integration
+                    </span>
                 </li>
             </ol>
         </nav>
@@ -872,7 +875,7 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Company Info -->
                     <div class="lg:col-span-2">
-                        <a href="/#home" class="flex items-center mb-6 group cursor-pointer w-fit">
+                        <a href="/" class="flex items-center mb-6 group cursor-pointer w-fit">
                             <div class="bg-gradient-to-r from-laravel-red to-laravel-orange p-2 rounded-lg mr-3 group-hover:scale-105 transition duration-300">
                                 <i class="fab fa-laravel text-white text-xl"></i>
                             </div>
@@ -906,31 +909,31 @@
                         <h4 class="text-lg font-semibold mb-6 text-white">Quick Links</h4>
                         <ul class="space-y-3">
                             <li>
-                                <a href="/#home" class="text-gray-300 hover:text-laravel-red transition duration-300 flex items-center">
+                                <a href="/" class="text-gray-300 hover:text-laravel-red transition duration-300 flex items-center">
                                     <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
                                     Home
                                 </a>
                             </li>
                             <li>
-                                <a href="/#about" class="text-gray-300 hover:text-laravel-red transition duration-300 flex items-center">
+                                <a href="/about.html" class="text-gray-300 hover:text-laravel-red transition duration-300 flex items-center">
                                     <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
                                     About Us
                                 </a>
                             </li>
                             <li>
-                                <a href="/#services" class="text-gray-300 hover:text-laravel-red transition duration-300 flex items-center">
+                                <a href="/services.html" class="text-gray-300 hover:text-laravel-red transition duration-300 flex items-center">
                                     <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
                                     Services
                                 </a>
                             </li>
                             <li>
-                                <a href="/#technologies" class="text-gray-300 hover:text-laravel-red transition duration-300 flex items-center">
+                                <a href="/technologies.html" class="text-gray-300 hover:text-laravel-red transition duration-300 flex items-center">
                                     <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
                                     Technologies
                                 </a>
                             </li>
                             <li>
-                                <a href="/#features" class="text-gray-300 hover:text-laravel-red transition duration-300 flex items-center">
+                                <a href="/features.html" class="text-gray-300 hover:text-laravel-red transition duration-300 flex items-center">
                                     <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
                                     Laravel Features
                                 </a>

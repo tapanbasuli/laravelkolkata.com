@@ -422,25 +422,28 @@ foreach ($services as $file => $data) {
     <!-- Hero / Intro Section -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
         <!-- Breadcrumbs -->
-        <nav class="flex mb-8 text-gray-500 text-sm font-medium" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <nav class="flex mb-8" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm">
                 <li class="inline-flex items-center">
-                    <a href="/" class="inline-flex items-center hover:text-laravel-red transition duration-300">
-                        <i class="fas fa-home mr-2"></i>
+                    <a href="/" class="inline-flex items-center text-gray-500 hover:text-laravel-red transition-colors duration-300 text-xs font-semibold">
+                        <i class="fas fa-home mr-2 text-[11px] text-gray-400"></i>
                         Home
                     </a>
                 </li>
-                <li>
-                    <div class="flex items-center">
-                        <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-                        <a href="/#services" class="hover:text-laravel-red transition duration-300">Services</a>
-                    </div>
+                <li class="flex items-center">
+                    <i class="fas fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+                    <a href="/services.html" class="inline-flex items-center text-gray-500 hover:text-laravel-red transition-colors duration-300 text-xs font-semibold">
+                        Services
+                    </a>
                 </li>
-                <li aria-current="page">
-                    <div class="flex items-center">
-                        <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-                        <span class="text-laravel-red font-semibold">{$shortTitle}</span>
-                    </div>
+                <li class="flex items-center">
+                    <i class="fas fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+                </li>
+                <li aria-current="page" class="flex items-center">
+                    <span class="inline-flex items-center bg-gradient-to-r from-laravel-red/10 to-laravel-orange/10 text-laravel-red px-3 py-1 rounded-full text-xs font-bold border border-laravel-red/20">
+                        <i class="{$icon} mr-1.5 text-[10px]"></i>
+                        {$shortTitle}
+                    </span>
                 </li>
             </ol>
         </nav>
@@ -654,22 +657,25 @@ if ($services_start !== false && $services_end !== false) {
 }
 
 $servicesContent = <<<HTML
-<div class="bg-white pt-28 pb-4 border-b border-gray-100">
+<div class="bg-gray-50/60 pt-28 pb-4 border-b border-gray-100/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Breadcrumbs -->
-        <nav class="flex text-gray-500 text-sm font-medium" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <nav class="flex" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full border border-gray-100 shadow-sm">
                 <li class="inline-flex items-center">
-                    <a href="/" class="inline-flex items-center hover:text-laravel-red transition duration-300">
-                        <i class="fas fa-home mr-2"></i>
+                    <a href="/" class="inline-flex items-center text-gray-500 hover:text-laravel-red transition-colors duration-300 text-xs font-semibold">
+                        <i class="fas fa-home mr-2 text-[11px] text-gray-400"></i>
                         Home
                     </a>
                 </li>
-                <li aria-current="page">
-                    <div class="flex items-center">
-                        <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-                        <span class="text-laravel-red font-semibold ml-1 md:ml-2">All Services</span>
-                    </div>
+                <li class="flex items-center">
+                    <i class="fas fa-chevron-right text-gray-300 text-[10px] mx-1"></i>
+                </li>
+                <li aria-current="page" class="flex items-center">
+                    <span class="inline-flex items-center bg-gradient-to-r from-laravel-red/10 to-laravel-orange/10 text-laravel-red px-3 py-1 rounded-full text-xs font-bold border border-laravel-red/20">
+                        <i class="fas fa-cogs mr-1.5 text-[10px]"></i>
+                        All Services
+                    </span>
                 </li>
             </ol>
         </nav>
