@@ -81,55 +81,57 @@
     <!-- Navigation -->
     <nav class="bg-white/95 backdrop-blur-md shadow-lg fixed w-full z-50 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <!-- Logo and Brand -->
-                <a href="/" class="flex items-center group cursor-pointer">
-                    <div class="bg-gradient-to-r from-laravel-red to-laravel-orange p-2 rounded-lg mr-3 group-hover:scale-105 transition duration-300">
-                        <i class="fab fa-laravel text-white text-xl"></i>
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="/" class="flex items-center group cursor-pointer">
+                            <div class="bg-gradient-to-r from-laravel-red to-laravel-orange p-2 rounded-lg mr-3 group-hover:scale-105 transition duration-300">
+                                <i class="fab fa-laravel text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-2xl font-bold text-gray-900 group-hover:text-laravel-red transition duration-300">Laravel Experts</h1>
+                                <p class="text-xs text-gray-500 -mt-1">Kolkata</p>
+                            </div>
+                        </a>
                     </div>
-                    <div>
-                        <span class="text-2xl font-bold text-gray-900 group-hover:text-laravel-red transition duration-300">Laravel Experts</span>
-                        <span class="block text-xs text-gray-500 -mt-1">Kolkata</span>
-                    </div>
-                </a>
-                <!-- Desktop Navigation -->
+                </div>
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="/" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
                         Home
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="/about.html" class="relative text-laravel-red transition duration-300 font-medium group">
+                    <a href="/about.html" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
                         About
-                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-laravel-red transition-all duration-300"></span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
                     
                     <!-- Services Dropdown -->
                     <div class="relative group py-5">
-                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
-                            Services <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium" aria-haspopup="true" aria-expanded="false">
+                            Services <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
                         </button>
                         <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[480px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="col-span-2 border-b border-gray-100 pb-3 flex justify-between items-center">
                                     <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Integration Services</span>
-                                    <a href="/services.html" class="text-xs font-bold text-laravel-red hover:underline">All 32 Services →</a>
+                                    <a href="/services.html" class="text-xs font-bold text-laravel-red hover:underline">All 34 Services →</a>
                                 </div>
                                 <a href="/service/zoho-crm.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
-                                        <i class="fas fa-users-cog text-sm"></i>
+                                    <div class="bg-laravel-red/10 text-laravel-red p-2 rounded-md mr-3">
+                                        <i class="fas fa-plug text-sm"></i>
                                     </div>
                                     <div>
                                         <div class="font-bold text-gray-900 text-sm">Zoho CRM</div>
-                                        <div class="text-xs text-gray-500">Sales flow synchronization.</div>
+                                        <div class="text-xs text-gray-500">Automate customer flows.</div>
                                     </div>
                                 </a>
-                                <a href="/service/doordash-drive.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-red-500/10 text-red-500 p-2 rounded-md mr-3">
-                                        <i class="fas fa-motorcycle text-sm"></i>
+                                <a href="/service/delhivery.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-truck text-sm"></i>
                                     </div>
                                     <div>
-                                        <div class="font-bold text-gray-900 text-sm">DoorDash Drive</div>
-                                        <div class="text-xs text-gray-500">On-demand local logistics.</div>
+                                        <div class="font-bold text-gray-900 text-sm">Delhivery</div>
+                                        <div class="text-xs text-gray-500">Express courier & logistics.</div>
                                     </div>
                                 </a>
                                 <a href="/service/whatsapp-business-bot.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
@@ -152,85 +154,88 @@
                                 </a>
                                 <div class="col-span-2 border-t border-gray-100 pt-3 flex justify-between items-center bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
                                     <div class="text-xs text-gray-500">Need custom integration?</div>
-                                    <a href="/contact.html" class="text-xs font-bold text-laravel-red hover:underline">Talk to our developers</a>
+                                    <a href="/#contact" class="text-xs font-bold text-laravel-red hover:underline">Talk to our developers</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Industries Dropdown -->
                     <div class="relative group py-5">
-                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
-                            Industries <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium" aria-haspopup="true" aria-expanded="false">
+                            Industries <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
                         </button>
-                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[480px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[440px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="col-span-2 border-b border-gray-100 pb-3 flex justify-between items-center">
                                     <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Industries We Serve</span>
-                                    <a href="/industries.html" class="text-xs font-bold text-laravel-red hover:underline">All 8 Industries →</a>
+                                    <a href="/industries.html" class="text-xs font-bold text-laravel-red hover:underline">All Industries →</a>
                                 </div>
                                 <a href="/industry/e-commerce-and-retail.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-indigo-500/10 text-indigo-500 p-2 rounded-md mr-3">
+                                    <div class="bg-laravel-red/10 text-laravel-red p-2 rounded-md mr-3">
                                         <i class="fas fa-shopping-cart text-sm"></i>
                                     </div>
                                     <div>
                                         <div class="font-bold text-gray-900 text-sm">E-Commerce & Retail</div>
-                                        <div class="text-xs text-gray-500">Custom stores & gateways.</div>
+                                        <div class="text-xs text-gray-500">Scalable online storefronts.</div>
                                     </div>
                                 </a>
                                 <a href="/industry/fintech-and-banking.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-emerald-500/10 text-emerald-500 p-2 rounded-md mr-3">
-                                        <i class="fas fa-wallet text-sm"></i>
+                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-credit-card text-sm"></i>
                                     </div>
                                     <div>
                                         <div class="font-bold text-gray-900 text-sm">FinTech & Banking</div>
-                                        <div class="text-xs text-gray-500">Secure transaction systems.</div>
+                                        <div class="text-xs text-gray-500">Secure transaction gateways.</div>
                                     </div>
                                 </a>
                                 <a href="/industry/logistics-and-transportation.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-amber-500/10 text-amber-500 p-2 rounded-md mr-3">
+                                    <div class="bg-green-500/10 text-green-500 p-2 rounded-md mr-3">
                                         <i class="fas fa-truck text-sm"></i>
                                     </div>
                                     <div>
                                         <div class="font-bold text-gray-900 text-sm">Logistics & Transportation</div>
-                                        <div class="text-xs text-gray-500">Real-time mapping & routing.</div>
+                                        <div class="text-xs text-gray-500">Real-time supply tracking.</div>
                                     </div>
                                 </a>
                                 <a href="/industry/healthcare-and-telemedicine.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-teal-500/10 text-teal-500 p-2 rounded-md mr-3">
+                                    <div class="bg-purple-500/10 text-purple-500 p-2 rounded-md mr-3">
                                         <i class="fas fa-heartbeat text-sm"></i>
                                     </div>
                                     <div>
                                         <div class="font-bold text-gray-900 text-sm">Healthcare & Biotech</div>
-                                        <div class="text-xs text-gray-500">HIPAA compliant solutions.</div>
+                                        <div class="text-xs text-gray-500">HIPAA compliant systems.</div>
                                     </div>
                                 </a>
+                                <div class="col-span-2 border-t border-gray-100 pt-3 text-center bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
+                                    <a href="/industries.html" class="text-xs font-bold text-laravel-red hover:underline">Explore all 8 industry verticals</a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Technologies Dropdown -->
                     <div class="relative group py-5">
-                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
-                            Technologies <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium" aria-haspopup="true" aria-expanded="false">
+                            Technologies <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
                         </button>
-                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[480px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[440px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="col-span-2 border-b border-gray-100 pb-3 flex justify-between items-center">
-                                    <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Our Tech Stack</span>
-                                    <a href="/technologies.html" class="text-xs font-bold text-laravel-red hover:underline">All 22 Technologies →</a>
+                                    <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Technology Stacks</span>
+                                    <a href="/technologies.html" class="text-xs font-bold text-laravel-red hover:underline">All Stacks →</a>
                                 </div>
                                 <a href="/technology/laravel.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-red-500/10 text-red-500 p-2 rounded-md mr-3">
+                                    <div class="bg-laravel-red/10 text-laravel-red p-2 rounded-md mr-3">
                                         <i class="fab fa-laravel text-sm"></i>
                                     </div>
                                     <div>
                                         <div class="font-bold text-gray-900 text-sm">Laravel Framework</div>
-                                        <div class="text-xs text-gray-500">Robust backend structures.</div>
+                                        <div class="text-xs text-gray-500">Core backend engine.</div>
                                     </div>
                                 </a>
                                 <a href="/technology/livewire.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-pink-500/10 text-pink-500 p-2 rounded-md mr-3">
+                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
                                         <i class="fas fa-bolt text-sm"></i>
                                     </div>
                                     <div>
@@ -257,8 +262,59 @@
                                     </div>
                                 </a>
                                 <div class="col-span-2 border-t border-gray-100 pt-3 text-center bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
-                                    <a href="/technologies.html" class="text-xs font-bold text-laravel-red hover:underline">Explore all 22 frameworks & tools</a>
+                                    <a href="/technologies.html" class="text-xs font-bold text-laravel-red hover:underline">Explore all 23 frameworks & tools</a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Solutions Dropdown -->
+                    <div class="relative group py-5">
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium" aria-haspopup="true" aria-expanded="false">
+                            AI Solutions <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
+                        </button>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[440px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="col-span-2 border-b border-gray-100 pb-3 flex justify-between items-center">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-gray-400">AI & Vector Stack</span>
+                                    <span class="text-[10px] bg-laravel-red/10 text-laravel-red px-2 py-0.5 rounded font-bold uppercase tracking-wider">Laravel 13</span>
+                                </div>
+                                <a href="/ai/openai-api.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-laravel-red/10 text-laravel-red p-2 rounded-md mr-3">
+                                        <i class="fas fa-robot text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">OpenAI API</div>
+                                        <div class="text-xs text-gray-500">GPT models & assistants.</div>
+                                    </div>
+                                </a>
+                                <a href="/ai/anthropic-claude.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-brain text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">Anthropic Claude</div>
+                                        <div class="text-xs text-gray-500">Advanced reasoning agents.</div>
+                                    </div>
+                                </a>
+                                <a href="/ai/pgvector.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-green-500/10 text-green-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-database text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">pgvector</div>
+                                        <div class="text-xs text-gray-500">PostgreSQL similarity search.</div>
+                                    </div>
+                                </a>
+                                <a href="/ai/ollama.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-purple-500/10 text-purple-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-cloud-download-alt text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">Ollama</div>
+                                        <div class="text-xs text-gray-500">Private, self-hosted LLMs.</div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -271,30 +327,29 @@
                         Contact Us
                     </a>
                 </div>
-                <!-- Mobile menu button -->
                 <div class="lg:hidden flex items-center">
-                    <button class="mobile-menu-button p-2 rounded-md hover:bg-gray-100 transition duration-300" aria-label="Open Menu">
-                        <i class="fas fa-bars text-gray-700 text-xl"></i>
+                    <button class="mobile-menu-button p-2 rounded-md hover:bg-gray-100 transition duration-300" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="fas fa-bars text-gray-700 text-xl" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile menu -->
-        <div class="mobile-menu hidden lg:hidden bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-80px)] overflow-y-auto">
+        <div id="mobile-menu" class="mobile-menu hidden lg:hidden bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-80px)] overflow-y-auto">
             <div class="px-4 py-4 space-y-2">
                 <a href="/" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">Home</a>
                 <a href="/about.html" class="block px-4 py-3 text-laravel-red bg-red-50 rounded-lg transition duration-300 font-medium">About</a>
                 
                 <!-- Mobile Dropdown Services -->
                 <div class="space-y-1">
-                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">
-                        <span>Services</span>
+                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">
+                        <span class="font-medium">Services</span>
                         <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
                     </button>
                     <div class="mobile-submenu hidden pl-4 space-y-1">
                         <a href="/services.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">All Integration Services</a>
                         <a href="/service/zoho-crm.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Zoho CRM</a>
-                        <a href="/service/doordash-drive.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">DoorDash Drive</a>
+                        <a href="/service/delhivery.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Delhivery</a>
                         <a href="/service/whatsapp-business-bot.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">WhatsApp Business</a>
                         <a href="/service/amazon-shipping.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Amazon Shipping</a>
                     </div>
@@ -302,8 +357,8 @@
 
                 <!-- Mobile Dropdown Industries -->
                 <div class="space-y-1">
-                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">
-                        <span>Industries</span>
+                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">
+                        <span class="font-medium">Industries</span>
                         <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
                     </button>
                     <div class="mobile-submenu hidden pl-4 space-y-1">
@@ -317,8 +372,8 @@
 
                 <!-- Mobile Dropdown Technologies -->
                 <div class="space-y-1">
-                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">
-                        <span>Technologies</span>
+                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">
+                        <span class="font-medium">Technologies</span>
                         <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
                     </button>
                     <div class="mobile-submenu hidden pl-4 space-y-1">
@@ -327,6 +382,20 @@
                         <a href="/technology/livewire.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Livewire</a>
                         <a href="/technology/filamentphp.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">FilamentPHP</a>
                         <a href="/technology/react-js.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">React & NextJS</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Dropdown AI Solutions -->
+                <div class="space-y-1">
+                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">
+                        <span class="font-medium">AI Solutions</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1">
+                        <a href="/ai/openai-api.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">OpenAI API</a>
+                        <a href="/ai/anthropic-claude.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Anthropic Claude</a>
+                        <a href="/ai/pgvector.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">pgvector</a>
+                        <a href="/ai/ollama.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Ollama</a>
                     </div>
                 </div>
 
@@ -492,8 +561,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white relative">
-        <div class="py-16 border-b border-gray-800">
+        <footer class="bg-gray-900 text-white relative">
+        <!-- Main Footer Content -->
+        <div class="py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Company Info -->
@@ -508,20 +578,21 @@
                             </div>
                         </a>
                         <p class="text-gray-300 mb-6 leading-relaxed max-w-md">
-                            We are a premier Laravel development agency based in Kolkata with 10+ years of experience. We deliver scalable, secure, and high-performance web applications using cutting-edge technologies.
+                            We are a premier Laravel development agency based in Kolkata with 10+ years of experience. 
+                            We deliver scalable, secure, and high-performance web applications using cutting-edge technologies.
                         </p>
                         <div class="flex space-x-4">
-                            <a href="#" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-linkedin"></i>
+                            <a href="#" aria-label="LinkedIn Profile" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
                             </a>
-                            <a href="#" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-twitter"></i>
+                            <a href="#" aria-label="Twitter Profile" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
                             </a>
-                            <a href="#" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-github"></i>
+                            <a href="#" aria-label="GitHub Profile" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-github" aria-hidden="true"></i>
                             </a>
-                            <a href="#" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-facebook"></i>
+                            <a href="#" aria-label="Facebook Page" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-facebook" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -598,6 +669,45 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Newsletter Subscription -->
+                <div class="mt-12 pt-8 border-t border-gray-800">
+                    <div class="text-center">
+                        <h4 class="text-xl font-semibold mb-4 text-white">Stay Updated with Laravel Trends</h4>
+                        <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+                            Subscribe to our newsletter for the latest Laravel development tips, industry insights, project updates, and exclusive offers.
+                        </p>
+                        
+                        <!-- HubSpot Newsletter Form -->
+                        <div id="hubspot-newsletter-form" class="max-w-md mx-auto">
+                            <!-- Fallback form while HubSpot loads -->
+                            <form id="newsletter-form-fallback" class="flex flex-col sm:flex-row gap-4 justify-center">
+                                <div class="flex-1">
+                                    <label for="newsletter-email" class="sr-only">Email Address</label>
+                                    <input 
+                                        type="email" 
+                                        id="newsletter-email"
+                                        name="email"
+                                        placeholder="Enter your email address" 
+                                        required
+                                        class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-laravel-red focus:border-transparent text-white placeholder-gray-400"
+                                    >
+                                </div>
+                                <button type="submit" class="bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300 whitespace-nowrap">
+                                    <i class="fas fa-envelope mr-2" aria-hidden="true"></i>
+                                    Subscribe
+                                </button>
+                            </form>
+                            
+                            <!-- Privacy Notice -->
+                            <p class="text-xs text-gray-400 mt-3">
+                                By subscribing, you agree to our 
+                                <a href="/privacy-policy.html" target="_blank" class="text-laravel-red hover:underline">Privacy Policy</a> 
+                                and consent to receive our newsletter.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -618,52 +728,410 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
+    <!-- Custom Styles for Animations -->
+    <style>
+        @keyframes slow-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        @keyframes slow-float-reverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(-180deg); }
+        }
+        
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate-slow-float {
+            animation: slow-float 20s ease-in-out infinite;
+        }
+        
+        .animate-slow-float-reverse {
+            animation: slow-float-reverse 25s ease-in-out infinite;
+        }
+        
+        .animate-bounce-slow {
+            animation: bounce-slow 3s ease-in-out infinite;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Loading screen fade out */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #FF2D20, #FF6B35);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #e02414, #e55a2b);
+        }
+    </style>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const btn = document.querySelector("button.mobile-menu-button");
-            const menu = document.querySelector(".mobile-menu");
-            
-            btn.addEventListener("click", () => {
-                menu.classList.toggle("hidden");
-                document.body.classList.toggle("overflow-hidden");
-            });
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        });
 
-            document.querySelectorAll('.mobile-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menu.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                });
-            });
-
-            document.querySelectorAll('.mobile-submenu-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const submenu = this.nextElementSibling;
-                    const chevron = this.querySelector('i.fa-chevron-down');
-                    
-                    submenu.classList.toggle('hidden');
-                    if (chevron) {
-                        chevron.classList.toggle('rotate-180');
-                    }
-                });
-            });
-
-            // Scroll to Top behavior
-            const scrollToTopBtn = document.getElementById('scroll-to-top');
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    scrollToTopBtn.classList.add('opacity-100');
-                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-                } else {
-                    scrollToTopBtn.classList.remove('opacity-100');
-                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-                }
-            });
-            scrollToTopBtn.addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('opacity-100');
+                scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                scrollToTopBtn.classList.remove('opacity-100');
+                scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
+
+        // Mobile menu toggle
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            const isExpanded = btn.getAttribute("aria-expanded") === "true";
+            btn.setAttribute("aria-expanded", !isExpanded);
+            menu.classList.toggle("hidden");
+            document.body.classList.toggle("overflow-hidden");
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Hide mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
+
+        // Mobile submenus toggle
+        document.querySelectorAll('.mobile-submenu-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const submenu = this.nextElementSibling;
+                const chevron = this.querySelector('i.fa-chevron-down');
+                
+                submenu.classList.toggle('hidden');
+                if (chevron) {
+                    chevron.classList.toggle('rotate-180');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // HubSpot Configuration
+        const HUBSPOT_PORTAL_ID = '243064993'; // Replace with your actual Portal ID
+        const CONTACT_FORM_ID = 'CONTACT_FORM_ID'; // Replace with your contact form ID
+        const NEWSLETTER_FORM_ID = 'NEWSLETTER_FORM_ID'; // Replace with your newsletter form ID
+
+        // Initialize HubSpot forms when page loads
+        window.addEventListener('load', function() {
+            // Initialize contact form
+            if (window.hbspt) {
+                initializeHubSpotForms();
+            } else {
+                // Wait for HubSpot script to load
+                const checkHubSpot = setInterval(() => {
+                    if (window.hbspt) {
+                        clearInterval(checkHubSpot);
+                        initializeHubSpotForms();
+                    }
+                }, 100);
+            }
+
+            // Initialize fallback form handlers
+            initializeFallbackForms();
+        });
+
+        function initializeHubSpotForms() {
+            // Contact Form
+            hbspt.forms.create({
+                region: "na1", // Change to your region (na1, eu1, etc.)
+                portalId: 243064993,
+                formId: CONTACT_FORM_ID,
+                target: "#hubspot-contact-form",
+                css: `
+                    .hs-form-field > label {
+                        color: #d1d5db !important;
+                        font-weight: 500 !important;
+                        margin-bottom: 0.5rem !important;
+                    }
+                    .hs-input {
+                        background-color: #374151 !important;
+                        border: 1px solid #4b5563 !important;
+                        border-radius: 0.5rem !important;
+                        padding: 0.75rem 1rem !important;
+                        color: white !important;
+                        width: 100% !important;
+                    }
+                    .hs-input:focus {
+                        border-color: #FF2D20 !important;
+                        box-shadow: 0 0 0 2px rgba(255, 45, 32, 0.2) !important;
+                    }
+                    .hs-button {
+                        background: linear-gradient(to right, #FF2D20, #FF6B35) !important;
+                        border: none !important;
+                        border-radius: 0.5rem !important;
+                        padding: 0.75rem 1.5rem !important;
+                        color: white !important;
+                        font-weight: 600 !important;
+                        width: 100% !important;
+                        transition: all 0.3s ease !important;
+                    }
+                    .hs-button:hover {
+                        transform: scale(1.05) !important;
+                        box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+                    }
+                    .hs-form-field {
+                        margin-bottom: 1.5rem !important;
+                    }
+                    .hs-fieldtype-select select {
+                        background-color: #374151 !important;
+                        border: 1px solid #4b5563 !important;
+                        color: white !important;
+                    }
+                    .hs-fieldtype-textarea textarea {
+                        background-color: #374151 !important;
+                        border: 1px solid #4b5563 !important;
+                        color: white !important;
+                    }
+                `,
+                onFormReady: function() {
+                    // Hide fallback form when HubSpot form loads
+                    document.getElementById('contact-form-fallback').style.display = 'none';
+                },
+                onFormSubmit: function() {
+                    // Track form submission
+                    if (window.gtag) {
+                        gtag('event', 'form_submit', {
+                            'event_category': 'Contact',
+                            'event_label': 'Contact Form'
+                        });
+                    }
+                },
+                onFormSubmitted: function() {
+                    // Show success message
+                    showSuccessMessage('contact');
+                }
+            });
+
+            // Newsletter Form
+            hbspt.forms.create({
+                region: "na1", // Change to your region
+                portalId: 243064993,
+                formId: NEWSLETTER_FORM_ID,
+                target: "#hubspot-newsletter-form",
+                css: `
+                    .hs-form {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        gap: 1rem !important;
+                    }
+                    .hs-form-field {
+                        margin-bottom: 0 !important;
+                    }
+                    .hs-input {
+                        background-color: #1f2937 !important;
+                        border: 1px solid #4b5563 !important;
+                        border-radius: 0.5rem !important;
+                        padding: 0.75rem 1rem !important;
+                        color: white !important;
+                        width: 100% !important;
+                    }
+                    .hs-input::placeholder {
+                        color: #9ca3af !important;
+                    }
+                    .hs-input:focus {
+                        border-color: #FF2D20 !important;
+                        box-shadow: 0 0 0 2px rgba(255, 45, 32, 0.2) !important;
+                    }
+                    .hs-button {
+                        background: linear-gradient(to right, #FF2D20, #FF6B35) !important;
+                        border: none !important;
+                        border-radius: 0.5rem !important;
+                        padding: 0.75rem 1.5rem !important;
+                        color: white !important;
+                        font-weight: 600 !important;
+                        transition: all 0.3s ease !important;
+                    }
+                    .hs-button:hover {
+                        transform: scale(1.05) !important;
+                        box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+                    }
+                    @media (min-width: 640px) {
+                        .hs-form {
+                            flex-direction: row !important;
+                        }
+                        .hs-form-field {
+                            flex: 1 !important;
+                        }
+                    }
+                `,
+                onFormReady: function() {
+                    // Hide fallback form when HubSpot form loads
+                    document.getElementById('newsletter-form-fallback').style.display = 'none';
+                },
+                onFormSubmit: function() {
+                    // Track newsletter subscription
+                    if (window.gtag) {
+                        gtag('event', 'newsletter_signup', {
+                            'event_category': 'Newsletter',
+                            'event_label': 'Footer Newsletter'
+                        });
+                    }
+                },
+                onFormSubmitted: function() {
+
+                    // Show success message
+                    showSuccessMessage('newsletter');
+                }
+            });
+        }
+
+        function initializeFallbackForms() {
+            // Contact form fallback
+            document.getElementById('contact-form-fallback').addEventListener('submit', function(e) {
+               
+                e.preventDefault();
+                handleFallbackSubmission('contact', this);
+            });
+
+            // Newsletter form fallback
+            document.getElementById('newsletter-form-fallback').addEventListener('submit', function(e) {
+                e.preventDefault();
+                handleFallbackSubmission('newsletter', this);
+            });
+        }
+
+        function handleFallbackSubmission(type, form) {
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission (replace with your actual endpoint)
+            setTimeout(() => {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                // Show success message
+                showSuccessMessage(type);
+
+                // Reset form
+                form.reset();
+
+                // Track submission
+                if (window.gtag) {
+                    gtag('event', 'form_submit', {
+                        'event_category': type === 'contact' ? 'Contact' : 'Newsletter',
+                        'event_label': 'Fallback Form'
+                    });
+                }
+            }, 2000);
+        }
+
+        function showSuccessMessage(type) {
+            const message = type === 'contact' 
+                ? 'Thank you for your message! We\'ll get back to you within 24 hours.'
+                : 'Successfully subscribed! Welcome to our Laravel community.';
+
+            // Create success notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle mr-3"></i>
+                    <span>${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-white hover:text-gray-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.classList.add('translate-x-full');
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+        }
     </script>
 </body>
 </html>

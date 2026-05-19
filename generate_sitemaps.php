@@ -189,343 +189,20 @@ foreach ($services as $path => $name) {
 }
 $servicesList .= '</div>';
 
-$htmlContent = <<<HTML
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitemap - Laravel Experts Kolkata</title>
-    
-    <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Laravel Experts Kolkata" />
-    <link rel="manifest" href="/favicon/site.webmanifest" />
-    
-    <!-- Meta Tags -->
-    <meta name="description" content="Sitemap for Laravel Experts Kolkata - Find all pages and services offered by our Laravel development agency.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://laravelkolkata.com/sitemap">
-    <link rel="alternate" hreflang="x-default" href="https://laravelkolkata.com/sitemap.html" />
-    <link rel="alternate" hreflang="en-IN" href="https://laravelkolkata.com/sitemap.html" />
-    <link rel="alternate" hreflang="en-US" href="https://laravelkolkata.com/sitemap.html" />
-    <link rel="alternate" hreflang="en-GB" href="https://laravelkolkata.com/sitemap.html" />
-    <link rel="alternate" hreflang="en-AU" href="https://laravelkolkata.com/sitemap.html" />
-    <link rel="alternate" hreflang="en-CA" href="https://laravelkolkata.com/sitemap.html" />
-    <link rel="alternate" hreflang="en-AE" href="https://laravelkolkata.com/sitemap.html" />
-    <link rel="alternate" hreflang="en-SG" href="https://laravelkolkata.com/sitemap.html" />
-    
-    <meta property="og:title" content="Sitemap - Laravel Experts Kolkata">
-    <meta property="og:description" content="Sitemap for Laravel Experts Kolkata - Find all pages and services offered by our Laravel development agency.">
-    <meta property="og:url" content="https://laravelkolkata.com/sitemap.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Laravel Experts Kolkata">
-    <meta property="og:locale" content="en_IN">
-    <meta property="og:locale:alternate" content="en_US">
-    <meta property="og:locale:alternate" content="en_GB">
-    <meta property="og:locale:alternate" content="en_AU">
-    <meta property="og:locale:alternate" content="en_CA">
-    <meta property="og:locale:alternate" content="en_AE">
-    <meta property="og:locale:alternate" content="en_SG">
+$index = file_get_contents('index.html');
 
-    <!-- HubSpot Tracking Code -->
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/243064993.js"></script>
+// extract header and footer
+$header_end = strpos($index, '<main class="relative">');
+$header = substr($index, 0, $header_end);
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65EWYHYPCP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+$footer_start = strpos($index, '<!-- Footer -->');
+$footer = substr($index, $footer_start);
 
-        gtag('config', 'G-65EWYHYPCP');
-    </script>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'laravel-red': '#FF2D20',
-                        'laravel-orange': '#FF6B35',
-                        'laravel-dark': '#1A202C',
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-50 font-sans antialiased">
-    <!-- Navigation -->
-    <nav class="bg-white/95 backdrop-blur-md shadow-lg fixed w-full z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <!-- Logo and Brand -->
-                <a href="/" class="flex items-center group cursor-pointer">
-                    <div class="bg-gradient-to-r from-laravel-red to-laravel-orange p-2 rounded-lg mr-3 group-hover:scale-105 transition duration-300">
-                        <i class="fab fa-laravel text-white text-xl"></i>
-                    </div>
-                    <div>
-                        <span class="text-2xl font-bold text-gray-900 group-hover:text-laravel-red transition duration-300">Laravel Experts</span>
-                        <span class="block text-xs text-gray-500 -mt-1">Kolkata</span>
-                    </div>
-                </a>
-                <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/#home" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
-                        Home
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="/#about" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
-                        About
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    
-                    <!-- Services Dropdown -->
-                    <div class="relative group py-5">
-                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
-                            Services <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
-                        </button>
-                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[480px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="col-span-2 border-b border-gray-100 pb-3 flex justify-between items-center">
-                                    <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Integration Services</span>
-                                    <a href="/services.html" class="text-xs font-bold text-laravel-red hover:underline">All 32 Services →</a>
-                                </div>
-                                <a href="/service/zoho-crm.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-laravel-red/10 text-laravel-red p-2 rounded-md mr-3">
-                                        <i class="fas fa-plug text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">Zoho CRM</div>
-                                        <div class="text-xs text-gray-500">Automate customer flows.</div>
-                                    </div>
-                                </a>
-                                <a href="/service/doordash-drive.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
-                                        <i class="fas fa-truck text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">DoorDash Drive</div>
-                                        <div class="text-xs text-gray-500">On-demand local logistics.</div>
-                                    </div>
-                                </a>
-                                <a href="/service/whatsapp-business-bot.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-green-500/10 text-green-500 p-2 rounded-md mr-3">
-                                        <i class="fab fa-whatsapp text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">WhatsApp Business</div>
-                                        <div class="text-xs text-gray-500">Automated customer bots.</div>
-                                    </div>
-                                </a>
-                                <a href="/service/amazon-shipping.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-yellow-500/10 text-yellow-500 p-2 rounded-md mr-3">
-                                        <i class="fab fa-amazon text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">Amazon Shipping</div>
-                                        <div class="text-xs text-gray-500">Enterprise shipping API.</div>
-                                    </div>
-                                </a>
-                                <div class="col-span-2 border-t border-gray-100 pt-3 flex justify-between items-center bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
-                                    <div class="text-xs text-gray-500">Need custom integration?</div>
-                                    <a href="/#contact" class="text-xs font-bold text-laravel-red hover:underline">Talk to our developers</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+// modify header and footer links to be absolute paths for the root
+$header = str_replace('href="#', 'href="/#', $header);
+$footer = str_replace('href="#', 'href="/#', $footer);
 
-                    <!-- Industries Dropdown -->
-                    <div class="relative group py-5">
-                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
-                            Industries <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
-                        </button>
-                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[440px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="col-span-2 border-b border-gray-100 pb-3 flex justify-between items-center">
-                                    <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Industries We Serve</span>
-                                    <a href="/industries.html" class="text-xs font-bold text-laravel-red hover:underline">All Industries →</a>
-                                </div>
-                                <a href="/industry/e-commerce-and-retail.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-laravel-red/10 text-laravel-red p-2 rounded-md mr-3">
-                                        <i class="fas fa-shopping-cart text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">E-Commerce & Retail</div>
-                                        <div class="text-xs text-gray-500">Scalable online storefronts.</div>
-                                    </div>
-                                </a>
-                                <a href="/industry/fintech-and-banking.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
-                                        <i class="fas fa-credit-card text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">FinTech & Banking</div>
-                                        <div class="text-xs text-gray-500">Secure transaction gateways.</div>
-                                    </div>
-                                </a>
-                                <a href="/industry/logistics-and-transportation.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-green-500/10 text-green-500 p-2 rounded-md mr-3">
-                                        <i class="fas fa-truck text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">Logistics & Transportation</div>
-                                        <div class="text-xs text-gray-500">Real-time supply tracking.</div>
-                                    </div>
-                                </a>
-                                <a href="/industry/healthcare-and-telemedicine.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-purple-500/10 text-purple-500 p-2 rounded-md mr-3">
-                                        <i class="fas fa-heartbeat text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">Healthcare & Biotech</div>
-                                        <div class="text-xs text-gray-500">HIPAA compliant systems.</div>
-                                    </div>
-                                </a>
-                                <div class="col-span-2 border-t border-gray-100 pt-3 text-center bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
-                                    <a href="/industries.html" class="text-xs font-bold text-laravel-red hover:underline">Explore all 8 industry verticals</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Technologies Dropdown -->
-                    <div class="relative group py-5">
-                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
-                            Technologies <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
-                        </button>
-                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[440px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="col-span-2 border-b border-gray-100 pb-3 flex justify-between items-center">
-                                    <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Technology Stacks</span>
-                                    <a href="/technologies.html" class="text-xs font-bold text-laravel-red hover:underline">All Stacks →</a>
-                                </div>
-                                <a href="/technology/laravel.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-laravel-red/10 text-laravel-red p-2 rounded-md mr-3">
-                                        <i class="fab fa-laravel text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">Laravel Framework</div>
-                                        <div class="text-xs text-gray-500">Core backend engine.</div>
-                                    </div>
-                                </a>
-                                <a href="/technology/livewire.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
-                                        <i class="fas fa-bolt text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">Livewire</div>
-                                        <div class="text-xs text-gray-500">Reactive, server-side UI.</div>
-                                    </div>
-                                </a>
-                                <a href="/technology/filamentphp.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-green-500/10 text-green-500 p-2 rounded-md mr-3">
-                                        <i class="fas fa-desktop text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">FilamentPHP</div>
-                                        <div class="text-xs text-gray-500">Stunning admin panels.</div>
-                                    </div>
-                                </a>
-                                <a href="/technology/react-js.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
-                                    <div class="bg-purple-500/10 text-purple-500 p-2 rounded-md mr-3">
-                                        <i class="fab fa-react text-sm"></i>
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-gray-900 text-sm">React & NextJS</div>
-                                        <div class="text-xs text-gray-500">Modern frontend clients.</div>
-                                    </div>
-                                </a>
-                                <div class="col-span-2 border-t border-gray-100 pt-3 text-center bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
-                                    <a href="/technologies.html" class="text-xs font-bold text-laravel-red hover:underline">Explore all 22 frameworks & tools</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="/#features" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
-                        Features
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="/#contact" class="bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300">
-                        Contact Us
-                    </a>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center">
-                    <button class="mobile-menu-button p-2 rounded-md hover:bg-gray-100 transition duration-300" aria-label="Open Menu">
-                        <i class="fas fa-bars text-gray-700 text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile menu -->
-        <div class="mobile-menu hidden lg:hidden bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-80px)] overflow-y-auto">
-            <div class="px-4 py-4 space-y-2">
-                <a href="/#home" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">Home</a>
-                <a href="/#about" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">About</a>
-                
-                <!-- Mobile Dropdown Services -->
-                <div class="space-y-1">
-                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">
-                        <span>Services</span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
-                    </button>
-                    <div class="mobile-submenu hidden pl-4 space-y-1">
-                        <a href="/services.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">All Integration Services</a>
-                        <a href="/service/zoho-crm.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Zoho CRM</a>
-                        <a href="/service/doordash-drive.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">DoorDash Drive</a>
-                        <a href="/service/whatsapp-business-bot.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">WhatsApp Business</a>
-                        <a href="/service/amazon-shipping.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Amazon Shipping</a>
-                    </div>
-                </div>
-
-                <!-- Mobile Dropdown Industries -->
-                <div class="space-y-1">
-                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">
-                        <span>Industries</span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
-                    </button>
-                    <div class="mobile-submenu hidden pl-4 space-y-1">
-                        <a href="/industries.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">All Industries Served</a>
-                        <a href="/industry/e-commerce-and-retail.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">E-Commerce & Retail</a>
-                        <a href="/industry/fintech-and-banking.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">FinTech & Banking</a>
-                        <a href="/industry/logistics-and-transportation.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Logistics & Transportation</a>
-                        <a href="/industry/healthcare-and-telemedicine.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Healthcare & Biotech</a>
-                    </div>
-                </div>
-
-                <!-- Mobile Dropdown Technologies -->
-                <div class="space-y-1">
-                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">
-                        <span>Technologies</span>
-                        <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
-                    </button>
-                    <div class="mobile-submenu hidden pl-4 space-y-1">
-                        <a href="/technologies.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">All Technologies We Use</a>
-                        <a href="/technology/laravel.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Laravel Framework</a>
-                        <a href="/technology/livewire.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Livewire</a>
-                        <a href="/technology/filamentphp.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">FilamentPHP</a>
-                        <a href="/technology/react-js.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">React & NextJS</a>
-                    </div>
-                </div>
-
-                <a href="/#features" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium font-semibold text-center">Features</a>
-                <a href="/#contact" class="block mx-4 mt-4 bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-3 rounded-lg font-semibold text-center">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="pt-24 pb-16">
+$sitemapMainContent = <<<HTML
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Header -->
             <div class="text-center mb-12">
@@ -534,9 +211,9 @@ $htmlContent = <<<HTML
             </div>
 
             <!-- Original Sitemap Content -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
                 <!-- Main Pages -->
-                <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red">
                     <div class="flex items-center mb-4">
                         <div class="bg-gradient-to-r from-laravel-red to-laravel-orange text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
                             <i class="fas fa-home text-xl"></i>
@@ -547,35 +224,23 @@ $htmlContent = <<<HTML
                         <li>
                             <a href="/" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
                                 <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Home
+                                Home Page
                             </a>
                         </li>
                         <li>
-                            <a href="/#about" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
+                            <a href="/about.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
                                 <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
                                 About Us
                             </a>
                         </li>
                         <li>
-                            <a href="/#services" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Our Services
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#technologies" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Technologies
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#features" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
+                            <a href="/features.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
                                 <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
                                 Laravel Features
                             </a>
                         </li>
                         <li>
-                            <a href="/#contact" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
+                            <a href="/contact.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
                                 <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
                                 Contact Us
                             </a>
@@ -583,270 +248,60 @@ $htmlContent = <<<HTML
                     </ul>
                 </div>
 
-                <!-- Services -->
-                <div class="bg-white rounded-lg shadow-lg p-6">
+                <!-- Directory Hubs -->
+                <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red">
                     <div class="flex items-center mb-4">
-                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-cogs text-xl"></i>
+                        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-folder text-xl"></i>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-900">Our Services</h2>
+                        <h2 class="text-xl font-bold text-gray-900">Directory Hubs</h2>
                     </div>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="/#services" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Custom Laravel Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#services" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                FilamentPHP Admin Panels
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#services" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Laravel Nova Integration
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#services" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Livewire Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#services" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                API Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#services" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Cloud Deployment
-                            </a>
-                        </li>
-                    </ul>
+                    {$directoriesList}
                 </div>
 
-                <!-- Technologies -->
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-code text-xl"></i>
-                        </div>
-                        <h2 class="text-xl font-bold text-gray-900">Technologies</h2>
-                    </div>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="/#technologies" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Laravel Framework
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#technologies" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Livewire
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#technologies" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                FilamentPHP
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#technologies" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                React.js
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#technologies" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Vue.js
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/#technologies" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Tailwind CSS
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Company Information -->
-                <div class="bg-white rounded-lg shadow-lg p-6">
+                <!-- Industry Pages -->
+                <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red">
                     <div class="flex items-center mb-4">
                         <div class="bg-gradient-to-r from-green-500 to-green-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
                             <i class="fas fa-building text-xl"></i>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-900">Company Info</h2>
+                        <h2 class="text-xl font-bold text-gray-900">Industries Served</h2>
                     </div>
-                    <ul class="space-y-3">
-                        <li>
-                            <span class="text-gray-700 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                10+ Years Experience
-                            </span>
-                        </li>
-                        <li>
-                            <span class="text-gray-700 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                100+ Projects Delivered
-                            </span>
-                        </li>
-                        <li>
-                            <span class="text-gray-700 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Based in Kolkata, India
-                            </span>
-                        </li>
-                        <li>
-                            <span class="text-gray-700 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                24/7 Support Available
-                            </span>
-                        </li>
-                    </ul>
+                    {$industriesList}
                 </div>
 
-                <!-- Contact Information -->
-                <div class="bg-white rounded-lg shadow-lg p-6">
+                <!-- Technology Pages -->
+                <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red">
                     <div class="flex items-center mb-4">
-                        <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-phone text-xl"></i>
+                        <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-laptop-code text-xl"></i>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-900">Contact Details</h2>
+                        <h2 class="text-xl font-bold text-gray-900">Technology Stacks</h2>
                     </div>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="mailto:hello@laravelkolkata.com" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-envelope text-xs mr-2 text-laravel-red"></i>
-                                hello@laravelkolkata.com
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tel:+919126338684" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-phone text-xs mr-2 text-laravel-red"></i>
-                                +91 91263 38684
-                            </a>
-                        </li>
-                        <li>
-                            <span class="text-gray-700 flex items-start">
-                                <i class="fas fa-map-marker-alt text-xs mr-2 text-laravel-red mt-1"></i>
-                                Salt Lake City, Sector V, Kolkata
-                            </span>
-                        </li>
-                        <li>
-                            <span class="text-gray-700 flex items-center">
-                                <i class="fas fa-clock text-xs mr-2 text-laravel-red"></i>
-                                Mon-Sat: 9AM-6PM IST
-                            </span>
-                        </li>
-                    </ul>
+                    {$technologiesList}
                 </div>
 
-                <!-- Legal Pages -->
-                <div class="bg-white rounded-lg shadow-lg p-6">
+                <!-- AI Solutions -->
+                <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red">
                     <div class="flex items-center mb-4">
-                        <div class="bg-gradient-to-r from-red-500 to-red-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-gavel text-xl"></i>
+                        <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-brain text-xl"></i>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-900">Legal Pages</h2>
+                        <h2 class="text-xl font-bold text-gray-900">AI Solutions</h2>
                     </div>
-                    <ul class="space-y-3">
-                        <li>
-                            <a href="/privacy-policy.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Privacy Policy
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/terms-of-service.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Terms of Service
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/sitemap.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Sitemap (You are here)
-                            </a>
-                        </li>
-                    </ul>
+                    {$aiList}
                 </div>
             </div>
 
-            <!-- New Solutions & Dynamic Pages Section -->
-            <div class="text-center mt-20 mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Directories & Detailed Profiles</h2>
-                <p class="text-xl text-gray-600">Navigate to our integration, industry, and technology hubs</p>
-            </div>
-
-            <!-- SIDE BY SIDE LAYOUT FOR DYNAMIC CONTENT -->
-            <div class="grid lg:grid-cols-3 gap-8 items-start">
-                <!-- Left Side: Directory, Industry, and Tech lists stacked vertically (col-span-1) -->
-                <div class="lg:col-span-1 space-y-8">
-                    <!-- Directories -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-gradient-to-r from-laravel-red to-laravel-orange text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-folder-open text-xl"></i>
-                            </div>
-                            <h2 class="text-xl font-bold text-gray-900">Directory Hubs</h2>
-                        </div>
-                        {$directoriesList}
+            <!-- Right Side: API & Integration Services -->
+            <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red h-full">
+                <div class="flex items-center mb-4">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-plug text-xl"></i>
                     </div>
-
-                    <!-- Industry Pages -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-gradient-to-r from-green-500 to-green-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-building text-xl"></i>
-                            </div>
-                            <h2 class="text-xl font-bold text-gray-900">Industries Served</h2>
-                        </div>
-                        {$industriesList}
-                    </div>
-
-                    <!-- Technology Pages -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-laptop-code text-xl"></i>
-                            </div>
-                            <h2 class="text-xl font-bold text-gray-900">Technology Stacks</h2>
-                        </div>
-                        {$technologiesList}
-                    </div>
-
-                    <!-- AI Solutions -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                                <i class="fas fa-brain text-xl"></i>
-                            </div>
-                            <h2 class="text-xl font-bold text-gray-900">AI Solutions</h2>
-                        </div>
-                        {$aiList}
-                    </div>
+                    <h2 class="text-xl font-bold text-gray-900">API & Integration Services</h2>
                 </div>
-
-                <!-- Right Side: API & Integration Services (col-span-2) -->
-                <div class="lg:col-span-2 bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red h-full">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
-                            <i class="fas fa-plug text-xl"></i>
-                        </div>
-                        <h2 class="text-xl font-bold text-gray-900">API & Integration Services</h2>
-                    </div>
-                    {$servicesList}
-                </div>
+                {$servicesList}
             </div>
 
             <!-- Call to Action -->
@@ -867,63 +322,22 @@ $htmlContent = <<<HTML
                 </div>
             </div>
         </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white relative">
-        <!-- Bottom Footer -->
-        <div class="bg-black py-6">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
-                        &copy; 2024 Laravel Experts Kolkata. All rights reserved.
-                    </div>
-                    <div class="flex space-x-6 text-sm">
-                        <a href="/privacy-policy.html" target="_blank" class="text-gray-400 hover:text-laravel-red transition duration-300">Privacy Policy</a>
-                        <a href="/terms-of-service.html" target="_blank" class="text-gray-400 hover:text-laravel-red transition duration-300">Terms of Service</a>
-                        <a href="/sitemap.html" target="_blank" class="text-gray-400 hover:text-laravel-red transition duration-300">Sitemap</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Mobile Menu Script -->
-    <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function () {
-            const btn = document.querySelector("button.mobile-menu-button");
-            const menu = document.querySelector(".mobile-menu");
-            btn.addEventListener("click", () => {
-                menu.classList.toggle("hidden");
-                document.body.classList.toggle("overflow-hidden");
-            });
-            // Hide mobile menu when clicking a link
-            document.querySelectorAll('.mobile-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menu.classList.add('hidden');
-                    document.body.classList.remove('overflow-hidden');
-                });
-            });
-
-            // Mobile submenus toggle
-            document.querySelectorAll('.mobile-submenu-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const submenu = this.nextElementSibling;
-                    const chevron = this.querySelector('i.fa-chevron-down');
-                    
-                    submenu.classList.toggle('hidden');
-                    if (chevron) {
-                        chevron.classList.toggle('rotate-180');
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
 HTML;
 
+$htmlContent = $header . "\n" . '    <!-- Main Content -->' . "\n" . '    <main class="pt-24 pb-16">' . "\n" . $sitemapMainContent . "\n" . '    </main>' . "\n" . $footer;
+
+// Update SEO and title tags for Sitemap page
+$htmlContent = preg_replace('/<title>.*?<\/title>/', "<title>Sitemap - Laravel Experts Kolkata</title>", $htmlContent);
+$htmlContent = str_replace(
+    'href="https://laravelkolkata.com"',
+    'href="https://laravelkolkata.com/sitemap.html"',
+    $htmlContent
+);
+$htmlContent = str_replace(
+    '<meta property="og:url" content="https://laravelkolkata.com">',
+    '<meta property="og:url" content="https://laravelkolkata.com/sitemap.html">',
+    $htmlContent
+);
+
 file_put_contents('sitemap.html', $htmlContent);
-echo "Generated sitemap.html with side-by-side layout.\n";
+echo "Generated sitemap.html with dynamic header/footer.\n";

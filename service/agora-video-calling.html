@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agora Real-Time Engagement Integration - Laravel Experts Kolkata</title>
 
+    <!-- Preconnect for external resources to improve performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://js.hs-scripts.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32" />
@@ -474,8 +481,8 @@
                     
                     <!-- Services Dropdown -->
                     <div class="relative group py-5">
-                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
-                            Services <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium" aria-haspopup="true" aria-expanded="false">
+                            Services <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
                         </button>
                         <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[480px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
                             <div class="grid grid-cols-2 gap-4">
@@ -529,8 +536,8 @@
 
                     <!-- Industries Dropdown -->
                     <div class="relative group py-5">
-                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
-                            Industries <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium" aria-haspopup="true" aria-expanded="false">
+                            Industries <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
                         </button>
                         <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[440px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
                             <div class="grid grid-cols-2 gap-4">
@@ -583,8 +590,8 @@
 
                     <!-- Technologies Dropdown -->
                     <div class="relative group py-5">
-                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
-                            Technologies <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium" aria-haspopup="true" aria-expanded="false">
+                            Technologies <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
                         </button>
                         <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[440px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
                             <div class="grid grid-cols-2 gap-4">
@@ -637,8 +644,8 @@
 
                     <!-- AI Solutions Dropdown -->
                     <div class="relative group py-5">
-                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
-                            AI Solutions <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium" aria-haspopup="true" aria-expanded="false">
+                            AI Solutions <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
                         </button>
                         <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[440px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
                             <div class="grid grid-cols-2 gap-4">
@@ -695,14 +702,14 @@
                     </a>
                 </div>
                 <div class="lg:hidden flex items-center">
-                    <button class="mobile-menu-button p-2 rounded-md hover:bg-gray-100 transition duration-300">
-                        <i class="fas fa-bars text-gray-700 text-xl"></i>
+                    <button class="mobile-menu-button p-2 rounded-md hover:bg-gray-100 transition duration-300" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <i class="fas fa-bars text-gray-700 text-xl" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile menu -->
-        <div class="mobile-menu hidden lg:hidden bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-80px)] overflow-y-auto">
+        <div id="mobile-menu" class="mobile-menu hidden lg:hidden bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-80px)] overflow-y-auto">
             <div class="px-4 py-4 space-y-2">
                 <a href="/" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">Home</a>
                 <a href="/about.html" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">About</a>
@@ -954,17 +961,17 @@
                             We deliver scalable, secure, and high-performance web applications using cutting-edge technologies.
                         </p>
                         <div class="flex space-x-4">
-                            <a href="/#" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-linkedin"></i>
+                            <a href="/#" aria-label="LinkedIn Profile" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
                             </a>
-                            <a href="/#" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-twitter"></i>
+                            <a href="/#" aria-label="Twitter Profile" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
                             </a>
-                            <a href="/#" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-github"></i>
+                            <a href="/#" aria-label="GitHub Profile" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-github" aria-hidden="true"></i>
                             </a>
-                            <a href="/#" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                                <i class="fab fa-facebook"></i>
+                            <a href="/#" aria-label="Facebook Page" class="bg-gray-800 hover:bg-laravel-red text-gray-400 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                <i class="fab fa-facebook" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -1055,6 +1062,7 @@
                             <!-- Fallback form while HubSpot loads -->
                             <form id="newsletter-form-fallback" class="flex flex-col sm:flex-row gap-4 justify-center">
                                 <div class="flex-1">
+                                    <label for="newsletter-email" class="sr-only">Email Address</label>
                                     <input 
                                         type="email" 
                                         id="newsletter-email"
@@ -1065,7 +1073,7 @@
                                     >
                                 </div>
                                 <button type="submit" class="bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300 whitespace-nowrap">
-                                    <i class="fas fa-envelope mr-2"></i>
+                                    <i class="fas fa-envelope mr-2" aria-hidden="true"></i>
                                     Subscribe
                                 </button>
                             </form>
@@ -1193,6 +1201,8 @@
         const menu = document.querySelector(".mobile-menu");
 
         btn.addEventListener("click", () => {
+            const isExpanded = btn.getAttribute("aria-expanded") === "true";
+            btn.setAttribute("aria-expanded", !isExpanded);
             menu.classList.toggle("hidden");
             document.body.classList.toggle("overflow-hidden");
         });
