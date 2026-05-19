@@ -1,3 +1,170 @@
+<?php
+// Script to dynamically update sitemap.xml and sitemap.html
+// This script PRESERVES all existing data/URLs and appends the newly generated ones.
+
+$baseUrl = 'https://laravelkolkata.com';
+$currentDate = date('Y-m-d');
+
+// --- 1. Gather dynamic pages ---
+$services = [];
+if (is_dir('service')) {
+    $files = scandir('service');
+    foreach ($files as $file) {
+        if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
+            $content = file_get_contents("service/$file");
+            preg_match('/<title>(.*?)<\/title>/', $content, $matches);
+            $title = isset($matches[1]) ? str_replace(' - Laravel Experts Kolkata', '', $matches[1]) : basename($file, '.html');
+            $services["/service/$file"] = $title;
+        }
+    }
+}
+
+$industries = [];
+if (is_dir('industry')) {
+    $files = scandir('industry');
+    foreach ($files as $file) {
+        if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
+            $content = file_get_contents("industry/$file");
+            preg_match('/<title>(.*?)<\/title>/', $content, $matches);
+            $title = isset($matches[1]) ? str_replace(' - Laravel Experts Kolkata', '', $matches[1]) : basename($file, '.html');
+            $industries["/industry/$file"] = $title;
+        }
+    }
+}
+
+$technologies = [];
+if (is_dir('technology')) {
+    $files = scandir('technology');
+    foreach ($files as $file) {
+        if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
+            $content = file_get_contents("technology/$file");
+            preg_match('/<title>(.*?)<\/title>/', $content, $matches);
+            $title = isset($matches[1]) ? str_replace(' - Laravel Experts Kolkata', '', $matches[1]) : basename($file, '.html');
+            $technologies["/technology/$file"] = $title;
+        }
+    }
+}
+
+asort($services);
+asort($industries);
+asort($technologies);
+
+
+// --- 2. Generate sitemap.xml (Preserve original structure and append new) ---
+$originalUrls = [
+    ['loc' => 'https://laravelkolkata.com/', 'lastmod' => '2024-12-01', 'changefreq' => 'weekly', 'priority' => '1.0'],
+    ['loc' => 'https://laravelkolkata.com/#about', 'lastmod' => '2024-12-01', 'changefreq' => 'monthly', 'priority' => '0.8'],
+    ['loc' => 'https://laravelkolkata.com/#services', 'lastmod' => '2024-12-01', 'changefreq' => 'monthly', 'priority' => '0.9'],
+    ['loc' => 'https://laravelkolkata.com/#technologies', 'lastmod' => '2024-12-01', 'changefreq' => 'monthly', 'priority' => '0.7'],
+    ['loc' => 'https://laravelkolkata.com/#contact', 'lastmod' => '2024-12-01', 'changefreq' => 'monthly', 'priority' => '0.8'],
+    ['loc' => 'https://laravelkolkata.com/privacy-policy.html', 'lastmod' => '2024-12-01', 'changefreq' => 'yearly', 'priority' => '0.3'],
+    ['loc' => 'https://laravelkolkata.com/terms-of-service.html', 'lastmod' => '2024-12-01', 'changefreq' => 'yearly', 'priority' => '0.3'],
+    ['loc' => 'https://laravelkolkata.com/sitemap.html', 'lastmod' => '2024-12-01', 'changefreq' => 'monthly', 'priority' => '0.4'],
+];
+
+$xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+$xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+
+// Add original URLs
+foreach ($originalUrls as $url) {
+    $xml .= "    <url>\n";
+    $xml .= "        <loc>{$url['loc']}</loc>\n";
+    $xml .= "        <lastmod>{$url['lastmod']}</lastmod>\n";
+    $xml .= "        <changefreq>{$url['changefreq']}</changefreq>\n";
+    $xml .= "        <priority>{$url['priority']}</priority>\n";
+    $xml .= "    </url>\n";
+}
+
+// Add new directory hub pages
+$directoryHubs = [
+    '/services.html',
+    '/industries.html',
+    '/technologies.html'
+];
+foreach ($directoryHubs as $hub) {
+    $xml .= "    <url>\n";
+    $xml .= "        <loc>{$baseUrl}{$hub}</loc>\n";
+    $xml .= "        <lastmod>{$currentDate}</lastmod>\n";
+    $xml .= "        <changefreq>weekly</changefreq>\n";
+    $xml .= "        <priority>0.8</priority>\n";
+    $xml .= "    </url>\n";
+}
+
+// Add dynamic service pages
+foreach ($services as $path => $name) {
+    $xml .= "    <url>\n";
+    $xml .= "        <loc>{$baseUrl}{$path}</loc>\n";
+    $xml .= "        <lastmod>{$currentDate}</lastmod>\n";
+    $xml .= "        <changefreq>monthly</changefreq>\n";
+    $xml .= "        <priority>0.7</priority>\n";
+    $xml .= "    </url>\n";
+}
+
+// Add dynamic industry pages
+foreach ($industries as $path => $name) {
+    $xml .= "    <url>\n";
+    $xml .= "        <loc>{$baseUrl}{$path}</loc>\n";
+    $xml .= "        <lastmod>{$currentDate}</lastmod>\n";
+    $xml .= "        <changefreq>monthly</changefreq>\n";
+    $xml .= "        <priority>0.7</priority>\n";
+    $xml .= "    </url>\n";
+}
+
+// Add dynamic technology pages
+foreach ($technologies as $path => $name) {
+    $xml .= "    <url>\n";
+    $xml .= "        <loc>{$baseUrl}{$path}</loc>\n";
+    $xml .= "        <lastmod>{$currentDate}</lastmod>\n";
+    $xml .= "        <changefreq>monthly</changefreq>\n";
+    $xml .= "        <priority>0.7</priority>\n";
+    $xml .= "    </url>\n";
+}
+
+$xml .= '</urlset>';
+file_put_contents('sitemap.xml', $xml);
+echo "Generated sitemap.xml.\n";
+
+
+// --- 3. Generate sitemap.html (Preserve original page and append sections) ---
+function generateListHtml($pages) {
+    $html = '<ul class="space-y-3">';
+    foreach ($pages as $path => $name) {
+        $html .= '
+                        <li>
+                            <a href="' . $path . '" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
+                                ' . htmlspecialchars($name) . '
+                            </a>
+                        </li>';
+    }
+    $html .= '
+                    </ul>';
+    return $html;
+}
+
+$directoriesList = generateListHtml([
+    '/services.html' => 'Integration Services Directory',
+    '/industries.html' => 'Industries We Serve',
+    '/technologies.html' => 'Technologies & Toolstack'
+]);
+
+$industriesList = generateListHtml($industries);
+$technologiesList = generateListHtml($technologies);
+
+// We want services list to be shown in a multi-column grid inside the card
+$servicesList = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">';
+foreach ($services as $path => $name) {
+    $servicesList .= '
+                        <div>
+                            <a href="' . $path . '" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
+                                ' . htmlspecialchars($name) . '
+                            </a>
+                        </div>';
+}
+$servicesList .= '</div>';
+
+$htmlContent = <<<HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -370,26 +537,7 @@
                             </div>
                             <h2 class="text-xl font-bold text-gray-900">Directory Hubs</h2>
                         </div>
-                        <ul class="space-y-3">
-                        <li>
-                            <a href="/services.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Integration Services Directory
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/industries.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Industries We Serve
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technologies.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Technologies &amp; Toolstack
-                            </a>
-                        </li>
-                    </ul>
+                        {$directoriesList}
                     </div>
 
                     <!-- Industry Pages -->
@@ -400,56 +548,7 @@
                             </div>
                             <h2 class="text-xl font-bold text-gray-900">Industries Served</h2>
                         </div>
-                        <ul class="space-y-3">
-                        <li>
-                            <a href="/industry/e-commerce-and-retail.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                E-Commerce &amp; Retail IT Solutions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/industry/edtech-and-elearning.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                EdTech &amp; E-Learning Platforms
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/industry/fintech-and-banking.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                FinTech &amp; Banking Software Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/industry/healthcare-and-telemedicine.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Healthcare &amp; Telemedicine IT Solutions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/industry/logistics-and-transportation.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Logistics &amp; Transportation Software
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/industry/real-estate-and-proptech.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Real Estate &amp; PropTech Solutions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/industry/saas-and-startups.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                SaaS Development for Startups
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/industry/travel-and-hospitality.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Travel &amp; Hospitality IT Solutions
-                            </a>
-                        </li>
-                    </ul>
+                        {$industriesList}
                     </div>
 
                     <!-- Technology Pages -->
@@ -460,104 +559,7 @@
                             </div>
                             <h2 class="text-xl font-bold text-gray-900">Technology Stacks</h2>
                         </div>
-                        <ul class="space-y-3">
-                        <li>
-                            <a href="/technology/alpine-js.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Alpine.js Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/bootstrap.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Bootstrap Integration
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/django.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Django Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/fast-api.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                FastAPI Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/filamentphp.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                FilamentPHP Admin Panels
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/laravel.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Laravel Development Services
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/livewire.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Laravel Livewire Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/nova-admin.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Laravel Nova Integration
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/next-js.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Next.js Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/node-js.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Node.js Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/python.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Python Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/react-js.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                React.js Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/shopify.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Shopify Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/tailwind-css.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Tailwind CSS Styling
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/vue-js.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Vue.js Development
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/technology/wordpress.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                WordPress Development
-                            </a>
-                        </li>
-                    </ul>
+                        {$technologiesList}
                     </div>
                 </div>
 
@@ -569,199 +571,7 @@
                         </div>
                         <h2 class="text-xl font-bold text-gray-900">API & Integration Services</h2>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-                        <div>
-                            <a href="/service/agora-video-calling.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Agora Real-Time Engagement Integration
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/amazon-shipping.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Amazon Shipping Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/apple-healthkit.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Apple HealthKit Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/brevo-mail-automation.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Brevo Mail Automation &amp; Marketing Integration
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/clover-pos.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Clover POS Developer Platform API Integration
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/courier-aggregator.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Courier Aggregator Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/dhl.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                DHL Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/dtdc.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                DTDC Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/delivery-management.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Delivery Management Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/doordash-drive.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                DoorDash Drive Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/ekart-logistics.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Ekart Logistics Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/facebook-for-business.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Facebook for Business Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/gohighlevel.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                GoHighLevel Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/google-geofencing-api.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Google Geofencing API Integration
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/google-maps-platform.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Google Maps Platform Integration
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/hubspot.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                HubSpot Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/instagram-for-business.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Instagram for Business Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/line-for-business.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                LINE for Business Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/payment-gateways.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Payment Gateway Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/sms-gateway-dlt.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                SMS Gateway &amp; DLT Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/shadowfax.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Shadowfax Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/shiprocket.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Shiprocket Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/shree-maruti.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Shree Maruti Courier Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/strava.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Strava Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/telegram-bot.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Telegram Bot Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/twilio-bulk-sms.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Twilio Bulk SMS Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/uber-direct.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Uber Direct Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/wechat.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                WeChat Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/whatsapp-business-bot.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                WhatsApp Business Platform Bot Integration
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/xpressbees.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                XpressBees Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/zoho-crm.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Zoho CRM Integration Services
-                            </a>
-                        </div>
-                        <div>
-                            <a href="/service/zoom-sdk.html" class="text-gray-700 hover:text-laravel-red transition duration-300 flex items-center">
-                                <i class="fas fa-chevron-right text-xs mr-2 text-laravel-red"></i>
-                                Zoom SDK Integration Services
-                            </a>
-                        </div></div>
+                    {$servicesList}
                 </div>
             </div>
 
@@ -823,3 +633,7 @@
     </script>
 </body>
 </html>
+HTML;
+
+file_put_contents('sitemap.html', $htmlContent);
+echo "Generated sitemap.html with side-by-side layout.\n";
