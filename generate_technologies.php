@@ -210,6 +210,78 @@ $technologies = [
             'Highly scalable architecture for large enterprise projects.',
             'Seamless integration with machine learning models and data pipelines.'
         ]
+    ],
+    'redis.html' => [
+        'title' => 'Redis Caching & Queue',
+        'icon' => 'fas fa-database',
+        'subtitle' => 'In-Memory Data Structure Store',
+        'description' => 'We leverage Redis to speed up database queries, cache frequent requests, manage Laravel queues, and enable real-time communication. Experience lightning-fast responses by keeping your active data in-memory.',
+        'benefits' => [
+            'Sub-millisecond latency for high-speed read/write operations.',
+            'First-class support for Laravel queues and Horizon dashboard.',
+            'Publish/Subscribe patterns for real-time WebSocket broadcasting.',
+            'Advanced data structures like Hashes, Lists, and Sorted Sets.'
+        ]
+    ],
+    'rabbitmq.html' => [
+        'title' => 'RabbitMQ Message Broker',
+        'icon' => 'fas fa-project-diagram',
+        'subtitle' => 'Enterprise Message Queueing & Pub/Sub',
+        'description' => 'For complex, decoupled architectures, we implement RabbitMQ to pass messages securely and reliably between microservices. Ensure high availability and asynchronous task processing at scale.',
+        'benefits' => [
+            'Robust routing mechanism with flexible routing patterns.',
+            'Decoupled system architecture for independent scaling.',
+            'Guaranteed message delivery with acknowledgements and persistence.',
+            'Exceptional throughput for high-volume message processing.'
+        ]
+    ],
+    'mysql.html' => [
+        'title' => 'MySQL Database',
+        'icon' => 'fas fa-database',
+        'subtitle' => 'The World\'s Most Popular Open-Source Database',
+        'description' => 'We design, optimize, and manage MySQL databases for Laravel applications. From indexing and schema design to query tuning and master-slave replication, we ensure data integrity and speed.',
+        'benefits' => [
+            'ACID-compliant transactions for absolute data consistency.',
+            'Highly optimized for Laravel Eloquent ORM relationships.',
+            'Proven scalability with indexing, caching, and partitioning.',
+            'Extensive toolchain and cloud hosting support (RDS, DigitalOcean).'
+        ]
+    ],
+    'postgresql.html' => [
+        'title' => 'PostgreSQL Database',
+        'icon' => 'fas fa-database',
+        'subtitle' => 'Advanced Open-Source Relational Database',
+        'description' => 'When your application demands advanced data types, complex queries, or geographic data (PostGIS), we build on PostgreSQL. Our developers optimize schema performance for high concurrency.',
+        'benefits' => [
+            'Rich data types including native JSON/JSONB and array support.',
+            'Advanced concurrency control (MVCC) for high-traffic apps.',
+            'Full-text search capabilities out of the box.',
+            'Geospatial extensions (PostGIS) for location-based services.'
+        ]
+    ],
+    'sqlite.html' => [
+        'title' => 'SQLite Database',
+        'icon' => 'fas fa-database',
+        'subtitle' => 'Self-Contained, Serverless SQL Database',
+        'description' => 'For lightweight applications, testing environments, or local mobile app synchronization, we implement SQLite. It offers zero-configuration database capabilities with a tiny disk footprint.',
+        'benefits' => [
+            'Zero server administration or database daemon setup.',
+            'Entire database stored in a single cross-platform file.',
+            'Ideal for local prototyping and fast automated test suites.',
+            'Surprisingly fast read-heavy performance for smaller apps.'
+        ]
+    ],
+    'mongodb.html' => [
+        'title' => 'MongoDB NoSQL',
+        'icon' => 'fas fa-leaf',
+        'subtitle' => 'Document-Based Distributed Database',
+        'description' => 'For unstructured data, catalog systems, and logging architectures, we implement MongoDB. By pairing it with Laravel (using custom Eloquent providers), we achieve high scalability and flexible schemas.',
+        'benefits' => [
+            'Flexible JSON-like document schema for rapid iterations.',
+            'Horizontal scalability through sharding and replica sets.',
+            'High write throughput for analytics, logs, and catalogs.',
+            'Native aggregation framework for complex data pipelines.'
+        ]
     ]
 ];
 
@@ -367,6 +439,9 @@ $categories = [
     ],
     'Frontend & Javascript' => [
         'react-js.html', 'next-js.html', 'vue-js.html', 'alpine-js.html'
+    ],
+    'Databases & Caching' => [
+        'mysql.html', 'postgresql.html', 'sqlite.html', 'mongodb.html', 'redis.html', 'rabbitmq.html'
     ],
     'Styling & UI' => [
         'tailwind-css.html', 'bootstrap.html'
