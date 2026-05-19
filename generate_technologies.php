@@ -330,6 +330,19 @@ HTML;
     // update title tag
     $html = preg_replace('/<title>.*?<\/title>/', "<title>{$title} - Laravel Experts Kolkata</title>", $html);
     
+    // SEO Update: update canonical and hreflang links to point to this subpage
+    $html = str_replace(
+        'href="https://laravelkolkata.com"',
+        "href=\"https://laravelkolkata.com/technology/{$file}\"",
+        $html
+    );
+    // SEO Update: update og:url
+    $html = str_replace(
+        '<meta property="og:url" content="https://laravelkolkata.com">',
+        "<meta property=\"og:url\" content=\"https://laravelkolkata.com/technology/{$file}\">",
+        $html
+    );
+    
     file_put_contents('technology/' . $file, $html);
 }
 echo "Created " . count($technologies) . " customized technology pages.\n";
@@ -431,6 +444,20 @@ HTML;
 
 $techPageHtml = $header . $techContent . "\n" . $footer;
 $techPageHtml = preg_replace('/<title>.*?<\/title>/', "<title>Technologies We Use - Laravel Experts Kolkata</title>", $techPageHtml);
+
+// SEO Update: update canonical and hreflang links to point to this directory page
+$techPageHtml = str_replace(
+    'href="https://laravelkolkata.com"',
+    'href="https://laravelkolkata.com/technologies.html"',
+    $techPageHtml
+);
+// SEO Update: update og:url
+$techPageHtml = str_replace(
+    '<meta property="og:url" content="https://laravelkolkata.com">',
+    '<meta property="og:url" content="https://laravelkolkata.com/technologies.html">',
+    $techPageHtml
+);
+
 file_put_contents('technologies.html', $techPageHtml);
 
 echo "Created technologies.html directory page.\n";

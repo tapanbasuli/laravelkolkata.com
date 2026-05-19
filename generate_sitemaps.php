@@ -186,6 +186,27 @@ $htmlContent = <<<HTML
     <meta name="description" content="Sitemap for Laravel Experts Kolkata - Find all pages and services offered by our Laravel development agency.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://laravelkolkata.com/sitemap">
+    <link rel="alternate" hreflang="x-default" href="https://laravelkolkata.com/sitemap.html" />
+    <link rel="alternate" hreflang="en-IN" href="https://laravelkolkata.com/sitemap.html" />
+    <link rel="alternate" hreflang="en-US" href="https://laravelkolkata.com/sitemap.html" />
+    <link rel="alternate" hreflang="en-GB" href="https://laravelkolkata.com/sitemap.html" />
+    <link rel="alternate" hreflang="en-AU" href="https://laravelkolkata.com/sitemap.html" />
+    <link rel="alternate" hreflang="en-CA" href="https://laravelkolkata.com/sitemap.html" />
+    <link rel="alternate" hreflang="en-AE" href="https://laravelkolkata.com/sitemap.html" />
+    <link rel="alternate" hreflang="en-SG" href="https://laravelkolkata.com/sitemap.html" />
+    
+    <meta property="og:title" content="Sitemap - Laravel Experts Kolkata">
+    <meta property="og:description" content="Sitemap for Laravel Experts Kolkata - Find all pages and services offered by our Laravel development agency.">
+    <meta property="og:url" content="https://laravelkolkata.com/sitemap.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Laravel Experts Kolkata">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="en_GB">
+    <meta property="og:locale:alternate" content="en_AU">
+    <meta property="og:locale:alternate" content="en_CA">
+    <meta property="og:locale:alternate" content="en_AE">
+    <meta property="og:locale:alternate" content="en_SG">
 
     <!-- HubSpot Tracking Code -->
     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/243064993.js"></script>

@@ -576,6 +576,19 @@ HTML;
     // update title tag
     $html = preg_replace('/<title>.*?<\/title>/', "<title>{$title} - Laravel Experts Kolkata</title>", $html);
     
+    // SEO Update: update canonical and hreflang links to point to this subpage
+    $html = str_replace(
+        'href="https://laravelkolkata.com"',
+        "href=\"https://laravelkolkata.com/service/{$file}\"",
+        $html
+    );
+    // SEO Update: update og:url
+    $html = str_replace(
+        '<meta property="og:url" content="https://laravelkolkata.com">',
+        "<meta property=\"og:url\" content=\"https://laravelkolkata.com/service/{$file}\">",
+        $html
+    );
+    
     file_put_contents('service/' . $file, $html);
 }
 echo "Created " . count($services) . " customized pages.\n";
@@ -673,7 +686,7 @@ $servicesContent = <<<HTML
             </div>
             <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Integration Services Directory</h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                Explore our comprehensive suite of API and third-party integration services. We build scalable, secure connections for your Laravel applications.
+                Explore our comprehensive suite of API and third-party integration solutions for Laravel applications.
             </p>
         </div>
         
@@ -686,6 +699,20 @@ HTML;
 
 $servicesPageHtml = $header . $servicesContent . "\n" . $footer;
 $servicesPageHtml = preg_replace('/<title>.*?<\/title>/', "<title>All Integration Services - Laravel Experts Kolkata</title>", $servicesPageHtml);
+
+// SEO Update: update canonical and hreflang links to point to this directory page
+$servicesPageHtml = str_replace(
+    'href="https://laravelkolkata.com"',
+    'href="https://laravelkolkata.com/services.html"',
+    $servicesPageHtml
+);
+// SEO Update: update og:url
+$servicesPageHtml = str_replace(
+    '<meta property="og:url" content="https://laravelkolkata.com">',
+    '<meta property="og:url" content="https://laravelkolkata.com/services.html">',
+    $servicesPageHtml
+);
+
 file_put_contents('services.html', $servicesPageHtml);
 
 echo "Created services.html directory page.\n";

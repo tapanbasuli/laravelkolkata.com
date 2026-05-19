@@ -264,6 +264,19 @@ HTML;
     // update title tag
     $html = preg_replace('/<title>.*?<\/title>/', "<title>{$title} - Laravel Experts Kolkata</title>", $html);
     
+    // SEO Update: update canonical and hreflang links to point to this subpage
+    $html = str_replace(
+        'href="https://laravelkolkata.com"',
+        "href=\"https://laravelkolkata.com/industry/{$file}\"",
+        $html
+    );
+    // SEO Update: update og:url
+    $html = str_replace(
+        '<meta property="og:url" content="https://laravelkolkata.com">',
+        "<meta property=\"og:url\" content=\"https://laravelkolkata.com/industry/{$file}\">",
+        $html
+    );
+    
     file_put_contents('industry/' . $file, $html);
 }
 echo "Created " . count($industries) . " customized industry pages.\n";
@@ -332,6 +345,20 @@ HTML;
 
 $industriesPageHtml = $header . $industriesContent . "\n" . $footer;
 $industriesPageHtml = preg_replace('/<title>.*?<\/title>/', "<title>Industries We Serve - Laravel Experts Kolkata</title>", $industriesPageHtml);
+
+// SEO Update: update canonical and hreflang links to point to this directory page
+$industriesPageHtml = str_replace(
+    'href="https://laravelkolkata.com"',
+    'href="https://laravelkolkata.com/industries.html"',
+    $industriesPageHtml
+);
+// SEO Update: update og:url
+$industriesPageHtml = str_replace(
+    '<meta property="og:url" content="https://laravelkolkata.com">',
+    '<meta property="og:url" content="https://laravelkolkata.com/industries.html">',
+    $industriesPageHtml
+);
+
 file_put_contents('industries.html', $industriesPageHtml);
 
 echo "Created industries.html directory page.\n";
