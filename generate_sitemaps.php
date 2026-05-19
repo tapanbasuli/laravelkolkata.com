@@ -49,6 +49,20 @@ asort($services);
 asort($industries);
 asort($technologies);
 
+$ai_pages = [];
+if (is_dir('ai')) {
+    $files = scandir('ai');
+    foreach ($files as $file) {
+        if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
+            $content = file_get_contents("ai/$file");
+            preg_match('/<title>(.*?)<\/title>/', $content, $matches);
+            $title = isset($matches[1]) ? str_replace(' - Laravel Experts Kolkata', '', $matches[1]) : basename($file, '.html');
+            $ai_pages["/ai/$file"] = $title;
+        }
+    }
+}
+asort($ai_pages);
+
 
 // --- 2. Generate sitemap.xml (Preserve original structure and append new) ---
 $originalUrls = [
@@ -120,6 +134,16 @@ foreach ($technologies as $path => $name) {
     $xml .= "    </url>\n";
 }
 
+// Add dynamic AI pages
+foreach ($ai_pages as $path => $name) {
+    $xml .= "    <url>\n";
+    $xml .= "        <loc>{$baseUrl}{$path}</loc>\n";
+    $xml .= "        <lastmod>{$currentDate}</lastmod>\n";
+    $xml .= "        <changefreq>monthly</changefreq>\n";
+    $xml .= "        <priority>0.7</priority>\n";
+    $xml .= "    </url>\n";
+}
+
 $xml .= '</urlset>';
 file_put_contents('sitemap.xml', $xml);
 echo "Generated sitemap.xml.\n";
@@ -150,6 +174,7 @@ $directoriesList = generateListHtml([
 
 $industriesList = generateListHtml($industries);
 $technologiesList = generateListHtml($technologies);
+$aiList = generateListHtml($ai_pages);
 
 // We want services list to be shown in a multi-column grid inside the card
 $servicesList = '<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">';
@@ -798,6 +823,17 @@ $htmlContent = <<<HTML
                             <h2 class="text-xl font-bold text-gray-900">Technology Stacks</h2>
                         </div>
                         {$technologiesList}
+                    </div>
+
+                    <!-- AI Solutions -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-laravel-red">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-brain text-xl"></i>
+                            </div>
+                            <h2 class="text-xl font-bold text-gray-900">AI Solutions</h2>
+                        </div>
+                        {$aiList}
                     </div>
                 </div>
 

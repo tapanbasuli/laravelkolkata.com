@@ -456,4 +456,28 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+    <url>
+        <loc>https://laravelkolkata.com/ai/anthropic-claude.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://laravelkolkata.com/ai/ollama.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://laravelkolkata.com/ai/openai-api.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://laravelkolkata.com/ai/pgvector.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>
