@@ -471,14 +471,170 @@
                         About
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a href="/#services" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
-                        Services
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="/#technologies" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
-                        Technologies
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
-                    </a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group py-5">
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
+                            Services <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[480px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="col-span-2 border-b border-gray-100 pb-3 flex justify-between items-center">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Integration Services</span>
+                                    <a href="/services.html" class="text-xs font-bold text-laravel-red hover:underline">All 32 Services →</a>
+                                </div>
+                                <a href="/service/zoho-crm.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-laravel-red/10 text-laravel-red p-2 rounded-md mr-3">
+                                        <i class="fas fa-plug text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">Zoho CRM</div>
+                                        <div class="text-xs text-gray-500">Automate customer flows.</div>
+                                    </div>
+                                </a>
+                                <a href="/service/doordash-drive.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-truck text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">DoorDash Drive</div>
+                                        <div class="text-xs text-gray-500">On-demand local logistics.</div>
+                                    </div>
+                                </a>
+                                <a href="/service/whatsapp-business-bot.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-green-500/10 text-green-500 p-2 rounded-md mr-3">
+                                        <i class="fab fa-whatsapp text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">WhatsApp Business</div>
+                                        <div class="text-xs text-gray-500">Automated customer bots.</div>
+                                    </div>
+                                </a>
+                                <a href="/service/amazon-shipping.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-yellow-500/10 text-yellow-500 p-2 rounded-md mr-3">
+                                        <i class="fab fa-amazon text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">Amazon Shipping</div>
+                                        <div class="text-xs text-gray-500">Enterprise shipping API.</div>
+                                    </div>
+                                </a>
+                                <div class="col-span-2 border-t border-gray-100 pt-3 flex justify-between items-center bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
+                                    <div class="text-xs text-gray-500">Need custom integration?</div>
+                                    <a href="/#contact" class="text-xs font-bold text-laravel-red hover:underline">Talk to our developers</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Industries Dropdown -->
+                    <div class="relative group py-5">
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
+                            Industries <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[440px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="col-span-2 border-b border-gray-100 pb-3 flex justify-between items-center">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Industries We Serve</span>
+                                    <a href="/industries.html" class="text-xs font-bold text-laravel-red hover:underline">All Industries →</a>
+                                </div>
+                                <a href="/industry/e-commerce-and-retail.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-laravel-red/10 text-laravel-red p-2 rounded-md mr-3">
+                                        <i class="fas fa-shopping-cart text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">E-Commerce & Retail</div>
+                                        <div class="text-xs text-gray-500">Scalable online storefronts.</div>
+                                    </div>
+                                </a>
+                                <a href="/industry/fintech-and-payments.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-credit-card text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">FinTech & Payments</div>
+                                        <div class="text-xs text-gray-500">Secure transaction gateways.</div>
+                                    </div>
+                                </a>
+                                <a href="/industry/logistics-and-delivery.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-green-500/10 text-green-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-truck text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">Logistics & Delivery</div>
+                                        <div class="text-xs text-gray-500">Real-time supply tracking.</div>
+                                    </div>
+                                </a>
+                                <a href="/industry/healthcare-and-telemedicine.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-purple-500/10 text-purple-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-heartbeat text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">Healthcare & Biotech</div>
+                                        <div class="text-xs text-gray-500">HIPAA compliant systems.</div>
+                                    </div>
+                                </a>
+                                <div class="col-span-2 border-t border-gray-100 pt-3 text-center bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
+                                    <a href="/industries.html" class="text-xs font-bold text-laravel-red hover:underline">Explore all 8 industry verticals</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technologies Dropdown -->
+                    <div class="relative group py-5">
+                        <button class="flex items-center text-gray-700 hover:text-laravel-red transition duration-300 font-medium">
+                            Technologies <i class="fas fa-chevron-down ml-1.5 text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[440px] bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 p-5">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="col-span-2 border-b border-gray-100 pb-3 flex justify-between items-center">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Technology Stacks</span>
+                                    <a href="/technologies.html" class="text-xs font-bold text-laravel-red hover:underline">All Stacks →</a>
+                                </div>
+                                <a href="/technology/laravel-framework.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-laravel-red/10 text-laravel-red p-2 rounded-md mr-3">
+                                        <i class="fab fa-laravel text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">Laravel Framework</div>
+                                        <div class="text-xs text-gray-500">Core backend engine.</div>
+                                    </div>
+                                </a>
+                                <a href="/technology/livewire.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-bolt text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">Livewire</div>
+                                        <div class="text-xs text-gray-500">Reactive, server-side UI.</div>
+                                    </div>
+                                </a>
+                                <a href="/technology/filamentphp.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-green-500/10 text-green-500 p-2 rounded-md mr-3">
+                                        <i class="fas fa-desktop text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">FilamentPHP</div>
+                                        <div class="text-xs text-gray-500">Stunning admin panels.</div>
+                                    </div>
+                                </a>
+                                <a href="/technology/react-js.html" class="flex items-start p-2 rounded-lg hover:bg-gray-50 transition duration-150">
+                                    <div class="bg-purple-500/10 text-purple-500 p-2 rounded-md mr-3">
+                                        <i class="fab fa-react text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900 text-sm">React & NextJS</div>
+                                        <div class="text-xs text-gray-500">Modern frontend clients.</div>
+                                    </div>
+                                </a>
+                                <div class="col-span-2 border-t border-gray-100 pt-3 text-center bg-gray-50 -mx-5 -mb-5 px-5 py-3 rounded-b-xl">
+                                    <a href="/technologies.html" class="text-xs font-bold text-laravel-red hover:underline">Explore all 16 frameworks & tools</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <a href="/#features" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
                         Features
                         <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
@@ -497,11 +653,55 @@
         <!-- Mobile menu -->
         <div class="mobile-menu hidden lg:hidden bg-white border-t border-gray-100 shadow-lg">
             <div class="px-4 py-4 space-y-2">
-                <a href="/#home" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">Home</a>
-                <a href="/#about" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">About</a>
-                <a href="/#services" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">Services</a>
-                <a href="/#technologies" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">Technologies</a>
-                <a href="/#features" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">Features</a>
+                <a href="/#home" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">Home</a>
+                <a href="/#about" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">About</a>
+                
+                <!-- Mobile Dropdown Services -->
+                <div class="space-y-1">
+                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">
+                        <span class="font-medium">Services</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1">
+                        <a href="/services.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">All Integration Services</a>
+                        <a href="/service/zoho-crm.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Zoho CRM</a>
+                        <a href="/service/doordash-drive.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">DoorDash Drive</a>
+                        <a href="/service/whatsapp-business-bot.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">WhatsApp Business</a>
+                        <a href="/service/amazon-shipping.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Amazon Shipping</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Dropdown Industries -->
+                <div class="space-y-1">
+                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">
+                        <span class="font-medium">Industries</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1">
+                        <a href="/industries.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">All Industries Served</a>
+                        <a href="/industry/e-commerce-and-retail.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">E-Commerce & Retail</a>
+                        <a href="/industry/fintech-and-payments.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">FinTech & Payments</a>
+                        <a href="/industry/logistics-and-delivery.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Logistics & Delivery</a>
+                        <a href="/industry/healthcare-and-telemedicine.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Healthcare & Biotech</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Dropdown Technologies -->
+                <div class="space-y-1">
+                    <button class="mobile-submenu-btn w-full text-left flex justify-between items-center px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300">
+                        <span class="font-medium">Technologies</span>
+                        <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="mobile-submenu hidden pl-4 space-y-1">
+                        <a href="/technologies.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">All Technologies We Use</a>
+                        <a href="/technology/laravel-framework.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Laravel Framework</a>
+                        <a href="/technology/livewire.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">Livewire</a>
+                        <a href="/technology/filamentphp.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">FilamentPHP</a>
+                        <a href="/technology/react-js.html" class="block px-4 py-2 text-sm text-gray-600 hover:text-laravel-red hover:bg-gray-50 rounded-md">React & NextJS</a>
+                    </div>
+                </div>
+
+                <a href="/#features" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">Features</a>
                 <a href="/#contact" class="block mx-4 mt-4 bg-gradient-to-r from-laravel-red to-laravel-orange text-white px-6 py-3 rounded-lg font-semibold text-center">Contact Us</a>
             </div>
         </div>
@@ -946,6 +1146,20 @@
         document.querySelectorAll('.mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
+            });
+        });
+
+        // Mobile submenus toggle
+        document.querySelectorAll('.mobile-submenu-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const submenu = this.nextElementSibling;
+                const chevron = this.querySelector('i.fa-chevron-down');
+                
+                submenu.classList.toggle('hidden');
+                if (chevron) {
+                    chevron.classList.toggle('rotate-180');
+                }
             });
         });
 
