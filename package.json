@@ -1,0 +1,12 @@
+{
+  "name": "laravelkolkata",
+  "version": "1.0.0",
+  "description": "Laravel Experts Kolkata website",
+  "main": "index.html",
+  "scripts": {
+    "build": "tailwindcss -i ./css/input.css -o ./css/style.min.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

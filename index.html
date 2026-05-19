@@ -418,20 +418,7 @@
         gtag('config', 'G-65EWYHYPCP');
     </script>
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'laravel-red': '#FF2D20',
-                        'laravel-orange': '#FF6B35',
-                        'laravel-dark': '#1A202C',
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/css/style.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 font-sans antialiased">
@@ -1712,12 +1699,14 @@
 
     <script>
         // Loading screen
-        window.addEventListener('load', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const loadingScreen = document.getElementById('loading-screen');
-            loadingScreen.classList.add('fade-out');
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 500);
+            if (loadingScreen) {
+                loadingScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }
         });
 
         // Scroll to top button
