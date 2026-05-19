@@ -85,6 +85,18 @@
         <priority>0.7</priority>
     </url>
     <url>
+        <loc>https://laravelkolkata.com/service/aramex.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://laravelkolkata.com/service/blue-dart.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://laravelkolkata.com/service/brevo-mail-automation.html</loc>
         <lastmod>2026-05-19</lastmod>
         <changefreq>monthly</changefreq>
@@ -92,12 +104,6 @@
     </url>
     <url>
         <loc>https://laravelkolkata.com/service/clover-pos.html</loc>
-        <lastmod>2026-05-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://laravelkolkata.com/service/courier-aggregator.html</loc>
         <lastmod>2026-05-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -115,7 +121,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://laravelkolkata.com/service/delivery-management.html</loc>
+        <loc>https://laravelkolkata.com/service/delhivery.html</loc>
         <lastmod>2026-05-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -134,6 +140,12 @@
     </url>
     <url>
         <loc>https://laravelkolkata.com/service/facebook-for-business.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://laravelkolkata.com/service/fedex.html</loc>
         <lastmod>2026-05-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

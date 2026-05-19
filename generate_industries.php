@@ -347,28 +347,34 @@ $industriesContent = <<<HTML
         </div>
     </div>
     <!-- CTA -->
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl relative">
-        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-gradient-to-br from-laravel-red/30 to-laravel-orange/30 rounded-full blur-3xl"></div>
-        <div class="grid lg:grid-cols-5 gap-0 items-center">
-            <div class="lg:col-span-3 p-10 lg:p-16 relative z-10">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Build?</h2>
-                <div class="space-y-6 text-gray-300">
-                    <p class="text-lg">
-                        Get a free technical consultation for your project.
-                    </p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl relative">
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-gradient-to-br from-laravel-red/30 to-laravel-orange/30 rounded-full blur-3xl"></div>
+            
+            <div class="grid lg:grid-cols-5 gap-0 items-center">
+                <div class="lg:col-span-3 p-10 lg:p-16 relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Why Partner With Laravel Experts Kolkata?</h2>
+                    <div class="space-y-6 text-gray-300">
+                        <p class="text-lg">
+                            Building industry-specific solutions requires more than generic templates. It requires a deep understanding of Laravel's architecture, security standards, and high-performance databases.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>10+ Years of Specialization:</strong> We exclusively work with the Laravel ecosystem.</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Enterprise-Grade Security:</strong> Strict adherence to compliance, encryption, and data protection.</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Performance Optimized:</strong> Scalable cloud deployments with Redis caching and Horizon queues.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="lg:col-span-2 bg-gradient-to-br from-laravel-red to-laravel-orange p-10 lg:p-16 text-center lg:text-left text-white h-full flex flex-col justify-center items-center lg:items-start relative z-10">
-                <h3 class="text-2xl font-bold mb-4">Ready to Build?</h3>
-                <p class="mb-8 opacity-90">Get a free technical consultation for your project.</p>
-                <a href="/#contact" class="bg-white text-laravel-red px-8 py-3 rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition duration-300 whitespace-nowrap">
-                    Contact Our Experts
-                </a>
+                <div class="lg:col-span-2 bg-gradient-to-br from-laravel-red to-laravel-orange p-10 lg:p-16 text-center lg:text-left text-white h-full flex flex-col justify-center items-center lg:items-start relative z-10">
+                    <h3 class="text-2xl font-bold mb-4">Ready to Build?</h3>
+                    <p class="mb-8 opacity-90">Get a free technical consultation and architecture proposal for your project.</p>
+                    <a href="/#contact" class="bg-white text-laravel-red px-8 py-3 rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition duration-300 whitespace-nowrap">
+                        Contact Our Experts
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </main>
 HTML;
 

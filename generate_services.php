@@ -90,16 +90,40 @@ $services = [
             'Streamlined last-mile logistics for your business.'
         ]
     ],
-    'courier-aggregator.html' => [
-        'title' => 'Courier Aggregator Integration Services',
-        'icon' => 'fas fa-boxes',
-        'subtitle' => 'Multi-Carrier Shipping Solutions',
-        'description' => 'Optimize your shipping operations by integrating top courier aggregators (like Shiprocket, Pickrr). Compare rates, print labels, and track shipments from a single Laravel interface.',
+    'delhivery.html' => [
+        'title' => 'Delhivery Integration Services',
+        'icon' => 'fas fa-truck-ramp-box',
+        'subtitle' => 'Enterprise Logistics & Express Courier API',
+        'description' => 'Automate your domestic shipping and fulfillment by integrating Delhivery\'s robust APIs. We implement automated pickup requests, shipping label generation, and real-time tracking webhooks.',
         'benefits' => [
-            'Automated airway bill (AWB) generation and label printing.',
-            'Dynamic shipping rate calculation at checkout.',
-            'Unified tracking updates for multiple carriers.',
-            'Automated return and RTO management workflows.'
+            'Automated airway bill (AWB) generation and shipping label printing.',
+            'Real-time package status and location tracking updates.',
+            'Cash on Delivery (COD) shipping and payment reconciliation workflows.',
+            'Automated return pickup creation and reverse logistics handling.'
+        ]
+    ],
+    'blue-dart.html' => [
+        'title' => 'Blue Dart Courier Integration Services',
+        'icon' => 'fas fa-shipping-fast',
+        'subtitle' => 'Premium Express Logistics API Solutions',
+        'description' => 'Provide fast and secure shipping options across India and globally by integrating Blue Dart APIs. We integrate shipping rate calculators, package booking, and tracking tools.',
+        'benefits' => [
+            'Real-time shipping rate calculations based on weight and destination.',
+            'Automated pickup scheduling and shipping label generation.',
+            'Instant package tracking updates for customers.',
+            'Cash on Delivery (COD) services and delivery confirmation.'
+        ]
+    ],
+    'fedex.html' => [
+        'title' => 'FedEx Integration Services',
+        'icon' => 'fab fa-fedex',
+        'subtitle' => 'Global Express Shipping & Logistics API',
+        'description' => 'Expand your global reach with seamless FedEx API integrations. We implement shipping rate calculations, international customs document generation, and real-time package tracking.',
+        'benefits' => [
+            'Dynamic shipping rate calculation for domestic and international orders.',
+            'Automated shipping label and customs documentation creation.',
+            'Real-time shipment tracking and delivery status webhooks.',
+            'Pickup scheduling and package pickup management workflows.'
         ]
     ],
     'ekart-logistics.html' => [
@@ -126,16 +150,16 @@ $services = [
             'Secure API authentication and payload handling.'
         ]
     ],
-    'delivery-management.html' => [
-        'title' => 'Delivery Management Integration Services',
-        'icon' => 'fas fa-route',
-        'subtitle' => 'Custom Fleet & Order Tracking Systems',
-        'description' => 'Build or integrate robust delivery management software to track your own fleet. We connect routing, dispatching, and tracking solutions tailored to your operational needs.',
+    'aramex.html' => [
+        'title' => 'Aramex Integration Services',
+        'icon' => 'fas fa-globe',
+        'subtitle' => 'Cross-Border Logistics & Courier API',
+        'description' => 'Enable smooth international and regional shipping by integrating Aramex APIs. We implement rates calculation, shipment booking, and real-time tracking for e-commerce platforms.',
         'benefits' => [
-            'Route optimization and intelligent dispatching.',
-            'Driver app integrations and real-time location tracking.',
-            'Automated customer notifications and ETA updates.',
-            'Detailed analytics on delivery times and fleet performance.'
+            'Real-time international and domestic shipping rate lookup.',
+            'Automated booking, airway bill creation, and label printing.',
+            'Real-time package tracking and custom notifications.',
+            'Reverse logistics and return pickup scheduling.'
         ]
     ],
     'shree-maruti.html' => [
@@ -606,7 +630,10 @@ $categories = [
         'clover-pos.html', 'payment-gateways.html'
     ],
     'Logistics & Delivery Integrations' => [
-        'doordash-drive.html', 'uber-direct.html', 'courier-aggregator.html', 'ekart-logistics.html', 'xpressbees.html', 'delivery-management.html', 'shree-maruti.html', 'amazon-shipping.html', 'dtdc.html', 'shadowfax.html', 'dhl.html', 'shiprocket.html'
+        'delhivery.html', 'blue-dart.html', 'fedex.html', 'ekart-logistics.html', 'xpressbees.html', 'aramex.html', 'shree-maruti.html', 'amazon-shipping.html', 'dtdc.html', 'shadowfax.html', 'dhl.html', 'shiprocket.html'
+    ],
+    'Quick & Local Delivery Integrations' => [
+        'doordash-drive.html', 'uber-direct.html'
     ],
     'Social Media & Messaging Integrations' => [
         'facebook-for-business.html', 'instagram-for-business.html', 'whatsapp-business-bot.html', 'telegram-bot.html', 'wechat.html', 'line-for-business.html'
@@ -698,6 +725,35 @@ $servicesContent = <<<HTML
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 {$cardsHtml}
+        </div>
+    </div>
+    <!-- CTA -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl relative">
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-gradient-to-br from-laravel-red/30 to-laravel-orange/30 rounded-full blur-3xl"></div>
+            
+            <div class="grid lg:grid-cols-5 gap-0 items-center">
+                <div class="lg:col-span-3 p-10 lg:p-16 relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Why Partner With Laravel Experts Kolkata?</h2>
+                    <div class="space-y-6 text-gray-300">
+                        <p class="text-lg">
+                            Integrating APIs and third-party systems requires secure authentication, proper webhook handlers, error monitoring, and optimized background queue processing.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>10+ Years of Specialization:</strong> We exclusively work with the Laravel ecosystem.</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Enterprise-Grade Security:</strong> Strict compliance, token encryption, and safe payload management.</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Performance Optimized:</strong> Asynchronous queuing (Redis/RabbitMQ) to prevent blocking user actions.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 bg-gradient-to-br from-laravel-red to-laravel-orange p-10 lg:p-16 text-center lg:text-left text-white h-full flex flex-col justify-center items-center lg:items-start relative z-10">
+                    <h3 class="text-2xl font-bold mb-4">Ready to Integrate?</h3>
+                    <p class="mb-8 opacity-90">Get a free technical consultation and architecture proposal for your API integration needs.</p>
+                    <a href="/#contact" class="bg-white text-laravel-red px-8 py-3 rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition duration-300 whitespace-nowrap">
+                        Contact Our Experts
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </main>
