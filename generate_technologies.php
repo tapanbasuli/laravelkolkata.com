@@ -67,6 +67,18 @@ $technologies = [
             'Secure actions and authorization gates.'
         ]
     ],
+    'laravel-ai-sdk.html' => [
+        'title' => 'Laravel AI SDK Integration Services',
+        'icon' => 'fas fa-brain',
+        'subtitle' => 'Unified, First-Party AI & Agent Package for Laravel 13',
+        'description' => 'Build future-proof AI applications using the official Laravel AI SDK. We implement LLM-driven chat interfaces, automated text generation, audio transcription, text-to-speech, and vector database search directly integrated with your Laravel models.',
+        'benefits' => [
+            'Provider-agnostic integrations (OpenAI, Anthropic, Gemini, DeepSeek, and more).',
+            'Structured AI Agents built using clean, testable Artisan commands.',
+            'Asynchronous task offloading via native queues and Event Broadcasting.',
+            'First-class Vector similarity search for Retrieval-Augmented Generation (RAG).'
+        ]
+    ],
     'react-js.html' => [
         'title' => 'React.js Development',
         'icon' => 'fab fa-react',
@@ -435,7 +447,7 @@ if ($tech_start !== false && $tech_end !== false) {
 // Generate technologies.html
 $categories = [
     'Backend & Admin Frameworks' => [
-        'laravel.html', 'livewire.html', 'filamentphp.html', 'nova-admin.html', 'node-js.html', 'python.html', 'fast-api.html', 'django.html'
+        'laravel.html', 'livewire.html', 'filamentphp.html', 'nova-admin.html', 'laravel-ai-sdk.html', 'node-js.html', 'python.html', 'fast-api.html', 'django.html'
     ],
     'Frontend & Javascript' => [
         'react-js.html', 'next-js.html', 'vue-js.html', 'alpine-js.html'
