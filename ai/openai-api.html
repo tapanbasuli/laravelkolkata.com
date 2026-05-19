@@ -1439,17 +1439,22 @@ $customerProfile = Ai::chat(&#039;openai&#039;)
 
         function initializeFallbackForms() {
             // Contact form fallback
-            document.getElementById('contact-form-fallback').addEventListener('submit', function(e) {
-               
-                e.preventDefault();
-                handleFallbackSubmission('contact', this);
-            });
+            const contactForm = document.getElementById('contact-form-fallback');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    handleFallbackSubmission('contact', this);
+                });
+            }
 
             // Newsletter form fallback
-            document.getElementById('newsletter-form-fallback').addEventListener('submit', function(e) {
-                e.preventDefault();
-                handleFallbackSubmission('newsletter', this);
-            });
+            const newsletterForm = document.getElementById('newsletter-form-fallback');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    handleFallbackSubmission('newsletter', this);
+                });
+            }
         }
 
         function handleFallbackSubmission(type, form) {
