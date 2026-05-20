@@ -1115,6 +1115,90 @@
                 }
             }, 5000);
         }
+
+        // Ad Blocker Detection
+        (function() {
+            window.addEventListener('load', function() {
+                // Short delay to let other scripts settle
+                setTimeout(checkAdblocker, 1200);
+            });
+
+            async function checkAdblocker() {
+                // Don't run detection if offline
+                if (!navigator.onLine) {
+                    return;
+                }
+
+                let adblockDetected = false;
+
+                // Test 1: Bait DOM Element
+                const bait = document.createElement('div');
+                bait.className = 'ad-banner adsbox ad-placement ad-placeholder doubleclick-ad pub_300x250';
+                bait.setAttribute('style', 'position: absolute; left: -9999px; top: -9999px; height: 1px; width: 1px; display: block !important;');
+                document.body.appendChild(bait);
+
+                const isBaitHidden = (
+                    bait.offsetHeight === 0 ||
+                    bait.offsetWidth === 0 ||
+                    window.getComputedStyle(bait).getPropertyValue('display') === 'none' ||
+                    window.getComputedStyle(bait).getPropertyValue('visibility') === 'hidden'
+                );
+                document.body.removeChild(bait);
+
+                if (isBaitHidden) {
+                    adblockDetected = true;
+                }
+
+                // Test 2: Network Fetch request to known ad script
+                if (!adblockDetected) {
+                    try {
+                        const url = new Request('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?t=' + Date.now(), {
+                            method: 'HEAD',
+                            mode: 'no-cors',
+                            cache: 'no-store'
+                        });
+                        await fetch(url);
+                    } catch (error) {
+                        adblockDetected = true;
+                    }
+                }
+
+                // If adblock detected, display the premium overlay
+                if (adblockDetected) {
+                    const overlay = document.getElementById('adblock-overlay');
+                    const modal = document.getElementById('adblock-modal');
+                    if (overlay && modal) {
+                        document.body.style.overflow = 'hidden';
+                        overlay.classList.remove('opacity-0', 'pointer-events-none');
+                        overlay.classList.add('opacity-100');
+                        modal.classList.remove('scale-95');
+                        modal.classList.add('scale-100');
+                    }
+                }
+            }
+        })();
     </script>
+
+    <!-- Ad Blocker Detector Overlay -->
+    <div id="adblock-overlay" class="fixed inset-0 bg-gray-900/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" style="z-index: 99999;">
+        <div class="bg-white rounded-2xl shadow-2xl border border-gray-100 max-w-md w-full p-8 text-center transform scale-95 transition-all duration-300" id="adblock-modal">
+            <div class="bg-red-50 text-laravel-red w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+                <i class="fas fa-shield-alt text-3xl animate-pulse"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Ad Blocker Detected</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                We notice you are using an ad blocker. Our site relies on essential scripts (like HubSpot forms and Google Analytics) to enable client communication and improve our services.
+            </p>
+            <p class="text-gray-500 text-xs leading-relaxed mb-6">
+                Please disable your ad blocker or add our domain to the whitelist, then refresh the page to continue.
+            </p>
+            <button onclick="window.location.reload();" class="w-full bg-gradient-to-r from-laravel-red to-laravel-orange text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+                <i class="fas fa-sync-alt mr-2"></i> I've Disabled It (Reload)
+            </button>
+            <p class="text-[11px] text-gray-400 mt-4">
+                How to disable: Click your ad blocker extension icon in the browser toolbar and toggle it off for this website.
+            </p>
+        </div>
+    </div>
 </body>
 </html>
