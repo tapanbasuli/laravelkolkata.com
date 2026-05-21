@@ -485,9 +485,9 @@
                     </div>
                 </div>
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
+                    <a href="/" class="relative text-laravel-red transition duration-300 font-medium group">
                         Home
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-laravel-red transition-all duration-300 group-hover:w-full"></span>
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-laravel-red transition-all duration-300"></span>
                     </a>
                     <a href="/about.html" class="relative text-gray-700 hover:text-laravel-red transition duration-300 font-medium group">
                         About
@@ -726,7 +726,7 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="mobile-menu hidden lg:hidden bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-80px)] overflow-y-auto">
             <div class="px-4 py-4 space-y-2">
-                <a href="/" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">Home</a>
+                <a href="/" class="block px-4 py-3 text-laravel-red bg-red-50 rounded-lg transition duration-300 font-medium">Home</a>
                 <a href="/about.html" class="block px-4 py-3 text-gray-700 hover:text-laravel-red hover:bg-gray-50 rounded-lg transition duration-300 font-medium">About</a>
                 
                 <!-- Mobile Dropdown Services -->
@@ -1616,6 +1616,157 @@
                 }
             }
         })();
+
+        // Active page menu highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const pathname = window.location.pathname;
+            
+            // 1. Identify which menu item is active
+            let activeItem = 'home'; // default
+            if (pathname.includes('about')) {
+                activeItem = 'about';
+            } else if (pathname.includes('features')) {
+                activeItem = 'features';
+            } else if (pathname.includes('contact')) {
+                activeItem = 'contact';
+            } else if (pathname.includes('services') || pathname.includes('/service/')) {
+                activeItem = 'services';
+            } else if (pathname.includes('industries') || pathname.includes('/industry/')) {
+                activeItem = 'industries';
+            } else if (pathname.includes('technologies') || pathname.includes('/technology/')) {
+                activeItem = 'technologies';
+            } else if (pathname.includes('/ai/')) {
+                activeItem = 'ai';
+            } else if (pathname === '/' || pathname.endsWith('index.html') || pathname === '' || pathname.endsWith('/')) {
+                activeItem = 'home';
+            } else {
+                activeItem = 'none';
+            }
+
+            // Helper to activate standard desktop link by text
+            function activateDesktopLink(linkText) {
+                const links = document.querySelectorAll('nav div.hidden.lg\\:flex > a');
+                links.forEach(link => {
+                    if (link.textContent.trim().toLowerCase() === linkText.toLowerCase()) {
+                        link.classList.remove('text-gray-700', 'hover:text-laravel-red');
+                        link.classList.add('text-laravel-red');
+                        const span = link.querySelector('span');
+                        if (span) {
+                            span.classList.remove('w-0', 'group-hover:w-full');
+                            span.classList.add('w-full');
+                        }
+                    }
+                });
+            }
+
+            // Helper to activate desktop dropdown button by text
+            function activateDesktopDropdown(buttonText) {
+                const buttons = document.querySelectorAll('nav div.relative.group button');
+                buttons.forEach(btn => {
+                    if (btn.textContent.trim().toLowerCase().includes(buttonText.toLowerCase())) {
+                        btn.classList.remove('text-gray-700', 'hover:text-laravel-red');
+                        btn.classList.add('text-laravel-red');
+                    }
+                });
+            }
+
+            // Helper to activate standard mobile link by text
+            function activateMobileLink(linkText) {
+                const links = document.querySelectorAll('#mobile-menu a');
+                links.forEach(link => {
+                    if (link.textContent.trim().toLowerCase() === linkText.toLowerCase()) {
+                        link.classList.remove('text-gray-700', 'hover:text-laravel-red', 'hover:bg-gray-50');
+                        link.classList.add('text-laravel-red', 'bg-red-50');
+                    }
+                });
+            }
+
+            // Helper to activate mobile dropdown button and expand it by text
+            function activateMobileDropdown(buttonText) {
+                const buttons = document.querySelectorAll('.mobile-submenu-btn');
+                buttons.forEach(btn => {
+                    if (btn.textContent.trim().toLowerCase().includes(buttonText.toLowerCase())) {
+                        btn.classList.remove('text-gray-700', 'hover:text-laravel-red', 'hover:bg-gray-50');
+                        btn.classList.add('text-laravel-red', 'bg-red-50/50');
+                        
+                        // Expand the submenu
+                        const submenu = btn.nextElementSibling;
+                        if (submenu && submenu.classList.contains('mobile-submenu')) {
+                            submenu.classList.remove('hidden');
+                            const chevron = btn.querySelector('i.fa-chevron-down');
+                            if (chevron) {
+                                chevron.classList.add('rotate-180');
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Remove existing active states first (so JavaScript handles active states cleanly)
+            const desktopLinks = document.querySelectorAll('nav div.hidden.lg\\:flex > a');
+            desktopLinks.forEach(link => {
+                link.classList.remove('text-laravel-red');
+                link.classList.add('text-gray-700', 'hover:text-laravel-red');
+                const span = link.querySelector('span');
+                if (span) {
+                    span.classList.remove('w-full');
+                    span.classList.add('w-0', 'group-hover:w-full');
+                }
+            });
+
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.classList.remove('text-laravel-red', 'bg-red-50');
+                link.classList.add('text-gray-700', 'hover:text-laravel-red', 'hover:bg-gray-50');
+            });
+
+            // 2. Apply active classes
+            if (activeItem === 'home') {
+                activateDesktopLink('Home');
+                activateMobileLink('Home');
+            } else if (activeItem === 'about') {
+                activateDesktopLink('About');
+                activateMobileLink('About');
+            } else if (activeItem === 'features') {
+                activateDesktopLink('Features');
+                activateMobileLink('Features');
+            } else if (activeItem === 'contact') {
+                activateMobileLink('Contact Us');
+            } else if (activeItem === 'services') {
+                activateDesktopDropdown('Services');
+                activateMobileDropdown('Services');
+            } else if (activeItem === 'industries') {
+                activateDesktopDropdown('Industries');
+                activateMobileDropdown('Industries');
+            } else if (activeItem === 'technologies') {
+                activateDesktopDropdown('Technologies');
+                activateMobileDropdown('Technologies');
+            } else if (activeItem === 'ai') {
+                activateDesktopDropdown('AI Solutions');
+                activateMobileDropdown('AI Solutions');
+            }
+
+            // 3. Highlight specific active sub-links in dropdowns (desktop and mobile)
+            const allLinks = document.querySelectorAll('nav a');
+            allLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                    try {
+                        const linkPath = new URL(href, window.location.origin).pathname;
+                        if (linkPath === pathname && linkPath !== '/' && linkPath !== '') {
+                            if (link.closest('.absolute') || link.closest('.mobile-submenu')) {
+                                link.classList.add('text-laravel-red');
+                                if (link.closest('.mobile-submenu')) {
+                                    link.classList.add('bg-red-50/50');
+                                }
+                            }
+                        }
+                    } catch (e) {
+                        // ignore malformed URLs or hashes
+                    }
+                }
+            });
+        });
     </script>
 
     <!-- Ad Blocker Detector Overlay -->
