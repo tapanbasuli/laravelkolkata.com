@@ -1508,10 +1508,31 @@
         <!-- Bottom Footer -->
         <div class="bg-black py-6">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-gray-400 text-sm text-center md:text-left">
                         &copy; 2024 Laravel Experts Kolkata. All rights reserved.
                     </div>
+                    
+                    <!-- Made in India Badge -->
+                    <div class="flex items-center gap-2 text-sm text-gray-400 my-2 md:my-0">
+                        <span>Made with</span>
+                        <svg class="w-4 h-4 text-laravel-red animate-pulse" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <span>in</span>
+                        <span class="inline-flex items-center gap-1.5 bg-gray-800/60 border border-gray-700/80 rounded-full px-3 py-1 text-xs font-semibold text-gray-200 hover:border-laravel-red/40 hover:bg-gray-850 transition-all duration-300 shadow-sm cursor-default">
+                            <svg class="w-4 h-3 rounded-sm shadow-sm" viewBox="0 0 900 600" aria-label="Indian Flag">
+                                <rect width="900" height="200" fill="#FF9933"/>
+                                <rect y="200" width="900" height="200" fill="#FFFFFF"/>
+                                <rect y="400" width="900" height="200" fill="#138808"/>
+                                <circle cx="450" cy="300" r="80" fill="none" stroke="#000080" stroke-width="10"/>
+                                <circle cx="450" cy="300" r="15" fill="#000080"/>
+                                <path d="M450 220 L450 380 M370 300 L530 300 M393 243 L507 357 M393 357 L507 243 M413 226 L487 374 M413 374 L487 226 M435 221 L465 379 M435 379 L465 221 M371 285 L529 315 M371 315 L529 285 M376 263 L524 337 M376 337 L524 263 M384 250 L516 350 M384 350 L516 250" stroke="#000080" stroke-width="4"/>
+                            </svg>
+                            India
+                        </span>
+                    </div>
+
                     <div class="flex space-x-6 text-sm">
                         <a href="/privacy-policy.html" target="_blank" class="text-gray-400 hover:text-laravel-red transition duration-300">Privacy Policy</a>
                         <a href="/terms-of-service.html" target="_blank" class="text-gray-400 hover:text-laravel-red transition duration-300">Terms of Service</a>
