@@ -1,5 +1,5 @@
 <?php
-$index = file_get_contents('index.html');
+$index = file_get_contents(__DIR__ . '/../index.html');
 
 // extract header and footer
 $header_end = strpos($index, '<main class="relative">');
@@ -13,8 +13,8 @@ $header = str_replace('href="#', 'href="/#', $header);
 $footer = str_replace('href="#', 'href="/#', $footer);
 
 // create industry directory
-if (!is_dir('industry')) {
-    mkdir('industry', 0755, true);
+if (!is_dir(__DIR__ . '/../industry')) {
+    mkdir(__DIR__ . '/../industry', 0755, true);
 }
 
 // Define industries
@@ -280,7 +280,7 @@ HTML;
         $html
     );
     
-    file_put_contents('industry/' . $file, $html);
+    file_put_contents(__DIR__ . '/../industry/' . $file, $html);
 }
 echo "Created " . count($industries) . " customized industry pages.\n";
 
@@ -394,6 +394,6 @@ $industriesPageHtml = str_replace(
     $industriesPageHtml
 );
 
-file_put_contents('industries.html', $industriesPageHtml);
+file_put_contents(__DIR__ . '/../industries.html', $industriesPageHtml);
 
 echo "Created industries.html directory page.\n";

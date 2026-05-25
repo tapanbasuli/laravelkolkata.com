@@ -7,11 +7,11 @@ $currentDate = date('Y-m-d');
 
 // --- 1. Gather dynamic pages ---
 $services = [];
-if (is_dir('service')) {
+if (is_dir(__DIR__ . '/../service')) {
     $files = scandir('service');
     foreach ($files as $file) {
         if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
-            $content = file_get_contents("service/$file");
+            $content = file_get_contents(__DIR__ . "/../service/$file");
             preg_match('/<title>(.*?)<\/title>/', $content, $matches);
             $title = isset($matches[1]) ? str_replace(' - Laravel Experts Kolkata', '', $matches[1]) : basename($file, '.html');
             $services["/service/$file"] = $title;
@@ -20,11 +20,11 @@ if (is_dir('service')) {
 }
 
 $industries = [];
-if (is_dir('industry')) {
+if (is_dir(__DIR__ . '/../industry')) {
     $files = scandir('industry');
     foreach ($files as $file) {
         if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
-            $content = file_get_contents("industry/$file");
+            $content = file_get_contents(__DIR__ . "/../industry/$file");
             preg_match('/<title>(.*?)<\/title>/', $content, $matches);
             $title = isset($matches[1]) ? str_replace(' - Laravel Experts Kolkata', '', $matches[1]) : basename($file, '.html');
             $industries["/industry/$file"] = $title;
@@ -33,11 +33,11 @@ if (is_dir('industry')) {
 }
 
 $technologies = [];
-if (is_dir('technology')) {
+if (is_dir(__DIR__ . '/../technology')) {
     $files = scandir('technology');
     foreach ($files as $file) {
         if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
-            $content = file_get_contents("technology/$file");
+            $content = file_get_contents(__DIR__ . "/../technology/$file");
             preg_match('/<title>(.*?)<\/title>/', $content, $matches);
             $title = isset($matches[1]) ? str_replace(' - Laravel Experts Kolkata', '', $matches[1]) : basename($file, '.html');
             $technologies["/technology/$file"] = $title;
@@ -50,11 +50,11 @@ asort($industries);
 asort($technologies);
 
 $ai_pages = [];
-if (is_dir('ai')) {
+if (is_dir(__DIR__ . '/../ai')) {
     $files = scandir('ai');
     foreach ($files as $file) {
         if (pathinfo($file, PATHINFO_EXTENSION) === 'html') {
-            $content = file_get_contents("ai/$file");
+            $content = file_get_contents(__DIR__ . "/../ai/$file");
             preg_match('/<title>(.*?)<\/title>/', $content, $matches);
             $title = isset($matches[1]) ? str_replace(' - Laravel Experts Kolkata', '', $matches[1]) : basename($file, '.html');
             $ai_pages["/ai/$file"] = $title;
@@ -145,7 +145,7 @@ foreach ($ai_pages as $path => $name) {
 }
 
 $xml .= '</urlset>';
-file_put_contents('sitemap.xml', $xml);
+file_put_contents(__DIR__ . '/../sitemap.xml', $xml);
 echo "Generated sitemap.xml.\n";
 
 
@@ -189,7 +189,7 @@ foreach ($services as $path => $name) {
 }
 $servicesList .= '</div>';
 
-$index = file_get_contents('index.html');
+$index = file_get_contents(__DIR__ . '/../index.html');
 
 // extract header and footer
 $header_end = strpos($index, '<main class="relative">');
@@ -339,5 +339,5 @@ $htmlContent = str_replace(
     $htmlContent
 );
 
-file_put_contents('sitemap.html', $htmlContent);
+file_put_contents(__DIR__ . '/../sitemap.html', $htmlContent);
 echo "Generated sitemap.html with dynamic header/footer.\n";

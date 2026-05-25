@@ -1,5 +1,5 @@
 <?php
-$index = file_get_contents('index.html');
+$index = file_get_contents(__DIR__ . '/../index.html');
 
 // extract header and footer
 $header_end = strpos($index, '<main class="relative">');
@@ -13,8 +13,8 @@ $header = str_replace('href="#', 'href="/#', $header);
 $footer = str_replace('href="#', 'href="/#', $footer);
 
 // create service directory
-if (!is_dir('service')) {
-    mkdir('service', 0755, true);
+if (!is_dir(__DIR__ . '/../service')) {
+    mkdir(__DIR__ . '/../service', 0755, true);
 }
 
 $services = [
@@ -616,7 +616,7 @@ HTML;
         $html
     );
     
-    file_put_contents('service/' . $file, $html);
+    file_put_contents(__DIR__ . '/../service/' . $file, $html);
 }
 echo "Created " . count($services) . " customized pages.\n";
 
@@ -775,6 +775,6 @@ $servicesPageHtml = str_replace(
     $servicesPageHtml
 );
 
-file_put_contents('services.html', $servicesPageHtml);
+file_put_contents(__DIR__ . '/../services.html', $servicesPageHtml);
 
 echo "Created services.html directory page.\n";

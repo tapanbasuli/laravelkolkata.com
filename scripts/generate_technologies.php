@@ -1,5 +1,5 @@
 <?php
-$index = file_get_contents('index.html');
+$index = file_get_contents(__DIR__ . '/../index.html');
 
 // extract header and footer
 $header_end = strpos($index, '<main class="relative">');
@@ -13,8 +13,8 @@ $header = str_replace('href="#', 'href="/#', $header);
 $footer = str_replace('href="#', 'href="/#', $footer);
 
 // create technology directory
-if (!is_dir('technology')) {
-    mkdir('technology', 0755, true);
+if (!is_dir(__DIR__ . '/../technology')) {
+    mkdir(__DIR__ . '/../technology', 0755, true);
 }
 
 // Define technologies
@@ -460,7 +460,7 @@ HTML;
         $html
     );
     
-    file_put_contents('technology/' . $file, $html);
+    file_put_contents(__DIR__ . '/../technology/' . $file, $html);
 }
 echo "Created " . count($technologies) . " customized technology pages.\n";
 
@@ -610,6 +610,6 @@ $techPageHtml = str_replace(
     $techPageHtml
 );
 
-file_put_contents('technologies.html', $techPageHtml);
+file_put_contents(__DIR__ . '/../technologies.html', $techPageHtml);
 
 echo "Created technologies.html directory page.\n";

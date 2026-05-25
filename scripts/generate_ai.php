@@ -1,5 +1,5 @@
 <?php
-$index = file_get_contents('index.html');
+$index = file_get_contents(__DIR__ . '/../index.html');
 
 // extract header and footer
 $header_end = strpos($index, '<main class="relative">');
@@ -13,8 +13,8 @@ $header = str_replace('href="#', 'href="/#', $header);
 $footer = str_replace('href="#', 'href="/#', $footer);
 
 // create ai directory
-if (!is_dir('ai')) {
-    mkdir('ai', 0755, true);
+if (!is_dir(__DIR__ . '/../ai')) {
+    mkdir(__DIR__ . '/../ai', 0755, true);
 }
 
 // Define AI & Vector technologies
@@ -302,6 +302,6 @@ HTML;
         $html
     );
     
-    file_put_contents('ai/' . $file, $html);
+    file_put_contents(__DIR__ . '/../ai/' . $file, $html);
 }
 echo "Created " . count($ai_pages) . " customized AI integration pages inside ai/ folder.\n";

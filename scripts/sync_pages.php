@@ -6,7 +6,7 @@
  */
 
 // 1. Load the canonical index.html
-$indexContent = file_get_contents('index.html');
+$indexContent = file_get_contents(__DIR__ . '/../index.html');
 if (!$indexContent) {
     die("Error: Could not read index.html\n");
 }
@@ -46,12 +46,12 @@ $targets = [
 ];
 
 foreach ($targets as $filename => $activeItem) {
-    if (!file_exists($filename)) {
+    if (!file_exists(__DIR__ . '/../' . $filename)) {
         echo "Warning: File {$filename} not found, skipping.\n";
         continue;
     }
 
-    $content = file_get_contents($filename);
+    $content = file_get_contents(__DIR__ . '/../' . $filename);
     
     // Find nav section in target file
     $tNavStart = strpos($content, $navStartComment);
@@ -137,6 +137,6 @@ foreach ($targets as $filename => $activeItem) {
 
     // Assemble new content and save
     $newFileContent = $headSection . $modifiedNav . $mainSection . $canonicalFooter;
-    file_put_contents($filename, $newFileContent);
+    file_put_contents(__DIR__ . '/../' . $filename, $newFileContent);
     echo "Successfully synchronized navigation and footer for: {$filename}\n";
 }
