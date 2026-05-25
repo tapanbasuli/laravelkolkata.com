@@ -416,7 +416,7 @@ foreach ($technologies as $file => $data) {
         <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl relative">
             <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-gradient-to-br from-laravel-red/30 to-laravel-orange/30 rounded-full blur-3xl"></div>
             
-            <div class="grid lg:grid-cols-5 gap-0 items-center">
+            <div class="grid lg:grid-cols-5 gap-0 items-stretch">
                 <div class="lg:col-span-3 p-10 lg:p-16 relative z-10">
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Let's Build Something Exceptional Together</h2>
                     <div class="space-y-6 text-gray-300">
@@ -424,9 +424,9 @@ foreach ($technologies as $file => $data) {
                             Harnessing the full potential of <strong>{$shortTitle}</strong> goes beyond basic setup. We design, optimize, and scale your applications with industry-standard patterns and robust security.
                         </p>
                         <ul class="space-y-3">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>10+ Years of Specialization:</strong> We exclusively work with the Laravel ecosystem.</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Enterprise-Grade Security:</strong> strict adherence to API rate limits, payload encryption, and secure token storage.</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Performance Optimized:</strong> We utilize Laravel Horizon and asynchronous queues to prevent API calls from blocking your application.</li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>10+ Years of Specialization:</strong> We exclusively work with the Laravel ecosystem.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>Enterprise-Grade Security:</strong> Strict adherence to API rate limits, payload encryption, and secure token storage.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>Performance Optimized:</strong> We utilize Laravel Horizon and asynchronous queues to prevent API calls from blocking your application.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -567,7 +567,7 @@ $techContent = <<<HTML
         <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl relative">
             <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-gradient-to-br from-laravel-red/30 to-laravel-orange/30 rounded-full blur-3xl"></div>
             
-            <div class="grid lg:grid-cols-5 gap-0 items-center">
+            <div class="grid lg:grid-cols-5 gap-0 items-stretch">
                 <div class="lg:col-span-3 p-10 lg:p-16 relative z-10">
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Let's Build Something Exceptional Together</h2>
                     <div class="space-y-6 text-gray-300">
@@ -575,9 +575,9 @@ $techContent = <<<HTML
                             Developing with modern stacks requires proper architectural design, optimization, and expert engineers who know the ins and outs of each tool.
                         </p>
                         <ul class="space-y-3">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>10+ Years of Specialization:</strong> We exclusively work with the Laravel ecosystem.</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Enterprise-Grade Security:</strong> Strict compliance, token encryption, and safe payload management.</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Performance Optimized:</strong> Asynchronous queuing (Redis/RabbitMQ) to prevent blocking user actions.</li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>10+ Years of Specialization:</strong> We exclusively work with the Laravel ecosystem.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>Enterprise-Grade Security:</strong> Strict compliance, token encryption, and safe payload management.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>Performance Optimized:</strong> Asynchronous queuing (Redis/RabbitMQ) to prevent blocking user actions.</span></li>
                         </ul>
                     </div>
                 </div>

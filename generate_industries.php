@@ -236,7 +236,7 @@ foreach ($industries as $file => $data) {
         <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl relative">
             <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-gradient-to-br from-laravel-red/30 to-laravel-orange/30 rounded-full blur-3xl"></div>
             
-            <div class="grid lg:grid-cols-5 gap-0 items-center">
+            <div class="grid lg:grid-cols-5 gap-0 items-stretch">
                 <div class="lg:col-span-3 p-10 lg:p-16 relative z-10">
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Why Partner With Laravel Experts Kolkata?</h2>
                     <div class="space-y-6 text-gray-300">
@@ -244,9 +244,9 @@ foreach ($industries as $file => $data) {
                             Building a solution for the <strong>{$shortTitle}</strong> industry requires a deep understanding of Laravel's architecture, queue systems, and security best practices.
                         </p>
                         <ul class="space-y-3">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>10+ Years of Specialization:</strong> We exclusively work with the Laravel ecosystem.</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Enterprise-Grade Security:</strong> Strict adherence to data protection and compliance.</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Performance Optimized:</strong> We utilize Laravel Horizon and modern cloud architecture for speed.</li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>10+ Years of Specialization:</strong> We exclusively work with the Laravel ecosystem.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>Enterprise-Grade Security:</strong> Strict adherence to data protection and compliance.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>Performance Optimized:</strong> We utilize Laravel Horizon and modern cloud architecture for speed.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -351,7 +351,7 @@ $industriesContent = <<<HTML
         <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl relative">
             <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-gradient-to-br from-laravel-red/30 to-laravel-orange/30 rounded-full blur-3xl"></div>
             
-            <div class="grid lg:grid-cols-5 gap-0 items-center">
+            <div class="grid lg:grid-cols-5 gap-0 items-stretch">
                 <div class="lg:col-span-3 p-10 lg:p-16 relative z-10">
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Why Partner With Laravel Experts Kolkata?</h2>
                     <div class="space-y-6 text-gray-300">
@@ -359,9 +359,9 @@ $industriesContent = <<<HTML
                             Building industry-specific solutions requires more than generic templates. It requires a deep understanding of Laravel's architecture, security standards, and high-performance databases.
                         </p>
                         <ul class="space-y-3">
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>10+ Years of Specialization:</strong> We exclusively work with the Laravel ecosystem.</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Enterprise-Grade Security:</strong> Strict adherence to compliance, encryption, and data protection.</li>
-                            <li class="flex items-center"><i class="fas fa-check-circle text-laravel-red mr-3"></i> <strong>Performance Optimized:</strong> Scalable cloud deployments with Redis caching and Horizon queues.</li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>10+ Years of Specialization:</strong> We exclusively work with the Laravel ecosystem.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>Enterprise-Grade Security:</strong> Strict adherence to compliance, encryption, and data protection.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-laravel-red mt-1 mr-3 flex-shrink-0"></i> <span><strong>Performance Optimized:</strong> Scalable cloud deployments with Redis caching and Horizon queues.</span></li>
                         </ul>
                     </div>
                 </div>
